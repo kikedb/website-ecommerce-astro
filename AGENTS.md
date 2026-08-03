@@ -1,9 +1,18 @@
-## Development
+## Local Development Ports Registry (MANDATORY)
 
-When starting the dev server, use background mode:
+ALWAYS use the assigned ports for this environment:
+- **Website Ecommerce Astro**: `http://localhost:4390` (Port 4390)
+- **Admin Ecommerce Frontend**: `http://localhost:5190` (Port 5190)
+- **Admin Ecommerce Backend**: `http://localhost:8090` or `http://admin-ecommerce-backend.test` (Port 8090)
+
+DO NOT use ports reserved by other systems:
+- FinanzAI: `5180`, `8010`, `3001`, `3200`, `3300`
+- Concreces: `5181`, `8011`, `4321`
+
+When starting the dev server, use background mode on port 4390:
 
 ```
-astro dev --background
+astro dev --port 4390 --background
 ```
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
