@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300;400;600;700;900&display=swap');
+
+@theme {
+  --color-brand-primary: #978C87;
+  --color-brand-secondary: #BEE9E7;
+  --color-brand-accent: #96CFBE;
+  --color-brand-gray: #BDB7B1;
+  --color-brand-pink: #F5D3D6;
+  
+  --font-serif: "Source Serif Pro", serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-serif);
+    color: var(--color-brand-primary);
+  }
+}
