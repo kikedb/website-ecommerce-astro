@@ -29,3 +29,13 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## File & Path Naming Rules (MANDATORY - Cross-Platform Compatibility)
+
+NEVER create, rename, or save files/directories with:
+- Trailing or leading spaces in folder or file names (e.g. `Folder /` or `File.txt `).
+- Trailing dots before file extensions or at the end of folder names (e.g. `file..png` or `Folder.`).
+- Non-standard spaces like narrow non-breaking spaces (`\u202f`, `\xa0`).
+- Windows-forbidden characters (`< > : " / \ | ? *`).
+
+ALWAYS sanitize file/directory names when adding images, screenshots, assets, or docs to ensure 100% compatibility with Windows Git checkouts.
