@@ -1,0 +1,79 @@
+---
+import BaseButton from '@/components/ui/BaseButton.vue';
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  buttonUrl: string;
+  variant?: 'mint' | 'dark' | 'glass';
+  icon?: string;
+  badge?: string;
+}
+
+const {
+  title,
+  subtitle,
+  buttonText,
+  buttonUrl,
+  variant = 'mint',
+  icon = '✨',
+  badge
+} = Astro.props;
+---
+
+<section class="py-16 font-bilbola relative overflow-hidden">
+  {/* Fondo según variante */}
+  <div class:list={[
+    'container mx-auto px-4 sm:px-6 lg:px-8',
+  ]}>
+    <div class:list={[
+      'relative rounded-bilbola-lg p-8 sm:p-12 lg:p-16 overflow-hidden shadow-xl transition-all duration-500 border',
+      variant === 'mint' ? 'bg-gradient-to-r from-bilbola-mint-light/80 via-bilbola-mint-light/40 to-white border-bilbola-mint-depth/30 text-bilbola-text-primary' : '',
+      variant === 'dark' ? 'bg-gradient-to-r from-bilbola-action-primary via-bilbola-action-focus to-[#123634] border-bilbola-mint-depth/40 text-white' : '',
+      variant === 'glass' ? 'bg-white/90 backdrop-blur-md border-bilbola-mint-light shadow-2xl text-bilbola-text-primary' : ''
+    ]}>
+      
+      {/* Círculos decorativos de fondo (Glass/Modern Aesthetic) */}
+      <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-bilbola-mint-depth/10 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-bilbola-action-primary/10 blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+        {badge && (
+          <span class:list={[
+            "inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-2xs",
+            variant === 'dark' ? 'bg-bilbola-mint-light text-bilbola-action-focus' : 'bg-bilbola-action-primary text-bilbola-mint-light'
+          ]}>
+            {badge}
+          </span>
+        )}
+
+        <h3 class:list={[
+          'text-3xl sm:text-4xl md:text-5xl font-black tracking-tight font-serif leading-tight',
+          variant === 'dark' ? 'text-white' : 'text-bilbola-text-primary'
+        ]}>
+          <span class="mr-2">{icon}</span>{title}
+        </h3>
+
+        <p class:list={[
+          'text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto',
+          variant === 'dark' ? 'text-bilbola-mint-light/90' : 'text-bilbola-text-secondary'
+        ]}>
+          {subtitle}
+        </p>
+
+        <div class="pt-4 flex justify-center items-center">
+          <BaseButton 
+            href={buttonUrl} 
+            variant={variant === 'dark' ? 'secondary' : 'primary'}
+            size="lg"
+            class="px-10 py-4 text-base font-extrabold shadow-xl hover:scale-105 transform transition-transform duration-300"
+          >
+            {buttonText} ➔
+          </BaseButton>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

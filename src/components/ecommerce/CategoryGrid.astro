@@ -1,0 +1,107 @@
+---
+import { fetchCategories, getImageUrl } from '@/lib/api';
+
+interface Category {
+  id: number | string;
+  name: string;
+  slug?: string;
+  image?: string;
+  description?: string;
+  itemCount?: number;
+}
+
+const apiCategories = await fetchCategories();
+const categories: Category[] = Array.isArray(apiCategories) && apiCategories.length > 0
+  ? apiCategories.slice(0, 6)
+  : [
+      {
+        id: 1,
+        name: 'Camas Montessori',
+        slug: 'camas-montessori',
+        description: 'Fomentando la autonomía, seguridad y descanso consciente desde sus primeros pasos.',
+        itemCount: 18,
+        image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 2,
+        name: 'Iluminación Mágica',
+        slug: 'iluminacion',
+        description: 'Lámparas quitamiedos y luces cálidas que acompañan sueños serenos cada noche.',
+        itemCount: 12,
+        image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 3,
+        name: 'Textiles Orgánicos',
+        slug: 'textiles',
+        description: 'Algodón 100% hipoalergénico con ilustraciones exclusivas inspiradas en la naturaleza.',
+        itemCount: 24,
+        image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80'
+      },
+      {
+        id: 4,
+        name: 'Muebles & Almacenamiento',
+        slug: 'muebles',
+        description: 'Repisas, libreros a su altura y baúles organizadores fabricados en madera sustentable.',
+        itemCount: 15,
+        image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'
+      }
+    ];
+---
+
+<section class="py-20 bg-bilbola-surface-page font-bilbola border-b border-bilbola-mint-light/40">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-bilbola-gray-light/30 gap-6">
+      <div>
+        <span class="px-3 py-1 bg-bilbola-mint-light/60 text-bilbola-action-focus rounded-full text-xs font-bold tracking-wider uppercase inline-block mb-3">
+          Explora Nuestro Catálogo 🛍️
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-bilbola-text-primary tracking-tight font-serif">
+          Categorías Destacadas
+        </h2>
+      </div>
+      <p class="text-bilbola-text-secondary max-w-md font-light text-base md:text-right">
+        Descubre piezas diseñadas con conciencia y amor artesanal para cada etapa de la infancia de tus pequeños.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {categories.map((cat) => (
+        <a 
+          href={`/productos?categoria=${cat.slug || cat.id}`} 
+          class="group relative h-96 rounded-bilbola-md overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-6 border border-bilbola-mint-light/60"
+        >
+          {/* Fondo e Imagen */}
+          <div class="absolute inset-0 bg-bilbola-surface-neutral overflow-hidden">
+            <img 
+              src={cat.image && cat.image.startsWith('http') ? cat.image : getImageUrl(cat.image || null)} 
+              alt={cat.name}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out filter brightness-[0.8]"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-bilbola-text-primary/90 via-bilbola-text-primary/40 to-transparent group-hover:from-bilbola-action-focus/95 transition-colors duration-500"></div>
+          </div>
+
+          {/* Contenido sobre el overlay */}
+          <div class="relative z-10 text-white transform group-hover:-translate-y-1 transition-transform duration-300">
+            {cat.itemCount && (
+              <span class="inline-block px-2.5 py-1 mb-2 text-xs font-bold bg-white/20 backdrop-blur-md text-bilbola-mint-light rounded-full border border-white/30">
+                {cat.itemCount} productos
+              </span>
+            )}
+            <h3 class="text-2xl font-bold font-serif mb-2 text-white group-hover:text-bilbola-mint-light transition-colors">
+              {cat.name}
+            </h3>
+            <p class="text-sm text-white/80 font-light line-clamp-2 mb-4 leading-relaxed">
+              {cat.description || 'Explora nuestra selección especial de artículos de esta categoría Bílbola.'}
+            </p>
+            
+            <div class="flex items-center text-sm font-extrabold text-bilbola-mint-light tracking-wide group-hover:underline decoration-2 underline-offset-4">
+              Ver Colección <span class="ml-2 transform group-hover:translate-x-2 transition-transform duration-300">➔</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
