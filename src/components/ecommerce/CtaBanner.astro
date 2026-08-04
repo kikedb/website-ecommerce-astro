@@ -1,5 +1,6 @@
 ---
 import BaseButton from '@/components/ui/BaseButton.vue';
+import { Sparkles, ShoppingBag, Leaf, ArrowRight } from '@lucide/vue';
 
 export interface Props {
   title: string;
@@ -7,7 +8,7 @@ export interface Props {
   buttonText: string;
   buttonUrl: string;
   variant?: 'mint' | 'dark' | 'glass';
-  icon?: string;
+  iconName?: 'sparkles' | 'shopping-bag' | 'leaf' | string;
   badge?: string;
 }
 
@@ -17,16 +18,14 @@ const {
   buttonText,
   buttonUrl,
   variant = 'mint',
-  icon = '✨',
+  iconName = 'sparkles',
   badge
 } = Astro.props;
 ---
 
 <section class="py-16 font-bilbola relative overflow-hidden">
   {/* Fondo según variante */}
-  <div class:list={[
-    'container mx-auto px-4 sm:px-6 lg:px-8',
-  ]}>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class:list={[
       'relative rounded-bilbola-lg p-8 sm:p-12 lg:p-16 overflow-hidden shadow-xl transition-all duration-500 border',
       variant === 'mint' ? 'bg-gradient-to-r from-bilbola-mint-light/80 via-bilbola-mint-light/40 to-white border-bilbola-mint-depth/30 text-bilbola-text-primary' : '',
@@ -38,7 +37,7 @@ const {
       <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-bilbola-mint-depth/10 blur-3xl pointer-events-none"></div>
       <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-bilbola-action-primary/10 blur-3xl pointer-events-none"></div>
 
-      <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+      <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6 flex flex-col items-center">
         {badge && (
           <span class:list={[
             "inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-2xs",
@@ -49,10 +48,13 @@ const {
         )}
 
         <h3 class:list={[
-          'text-3xl sm:text-4xl md:text-5xl font-black tracking-tight font-serif leading-tight',
+          'text-3xl sm:text-4xl md:text-5xl font-black tracking-tight font-serif leading-tight flex items-center justify-center gap-3.5 flex-wrap',
           variant === 'dark' ? 'text-white' : 'text-bilbola-text-primary'
         ]}>
-          <span class="mr-2">{icon}</span>{title}
+          {iconName === 'shopping-bag' && <ShoppingBag class="w-8 h-8 md:w-10 md:h-10 text-bilbola-mint-depth shrink-0" />}
+          {iconName === 'leaf' && <Leaf class="w-8 h-8 md:w-10 md:h-10 text-bilbola-mint-light shrink-0" />}
+          {(iconName === 'sparkles' || !iconName) && <Sparkles class="w-8 h-8 md:w-10 md:h-10 text-bilbola-action-focus shrink-0" />}
+          <span>{title}</span>
         </h3>
 
         <p class:list={[
@@ -62,14 +64,15 @@ const {
           {subtitle}
         </p>
 
-        <div class="pt-4 flex justify-center items-center">
+        <div class="pt-4 flex justify-center items-center w-full">
           <BaseButton 
             href={buttonUrl} 
             variant={variant === 'dark' ? 'secondary' : 'primary'}
             size="lg"
-            class="px-10 py-4 text-base font-extrabold shadow-xl hover:scale-105 transform transition-transform duration-300"
+            class="px-10 py-4 text-base font-extrabold shadow-xl hover:scale-105 transform transition-transform duration-300 inline-flex items-center"
           >
-            {buttonText} ➔
+            <span>{buttonText}</span>
+            <ArrowRight class="w-5 h-5 ml-2.5 inline-block shrink-0" />
           </BaseButton>
         </div>
       </div>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue';
+import { shallowRef, type Component } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import { Sparkles, Moon, Palette, ArrowRight } from '@lucide/vue';
 import BaseButton from '@/components/ui/BaseButton.vue';
 import BaseBadge from '@/components/ui/BaseBadge.vue';
 
@@ -13,6 +14,7 @@ import 'swiper/css/effect-fade';
 export interface HeroSlide {
   id: number;
   tagline: string;
+  icon: Component;
   titleLight: string;
   titleBold: string;
   description: string;
@@ -27,7 +29,8 @@ const modules = shallowRef([Navigation, Pagination, Autoplay, EffectFade]);
 const slides = shallowRef<HeroSlide[]>([
   {
     id: 1,
-    tagline: 'Nueva Colección 2026 ✨',
+    tagline: 'Nueva Colección 2026',
+    icon: Sparkles,
     titleLight: 'Descubre un mundo de',
     titleBold: 'magia y alegría',
     description: 'En cada rincón, encontrarás una conexión profunda con el niño interior, donde los sueños se hacen realidad con nuestro diseño artesanal y sustentable.',
@@ -38,7 +41,8 @@ const slides = shallowRef<HeroSlide[]>([
   },
   {
     id: 2,
-    tagline: 'Dormitorios Soñados 🌙',
+    tagline: 'Dormitorios Soñados',
+    icon: Moon,
     titleLight: 'Espacios mágicos para',
     titleBold: 'soñar y crecer',
     description: 'Camas estilo Montessori, textiles de algodón orgánico y muebles pensados para fomentar la imaginación y la autonomía con dulzura.',
@@ -49,7 +53,8 @@ const slides = shallowRef<HeroSlide[]>([
   },
   {
     id: 3,
-    tagline: 'Creaciones Únicas 🎨',
+    tagline: 'Creaciones Únicas',
+    icon: Palette,
     titleLight: 'Decoración infantil con',
     titleBold: 'sello personalizado',
     description: 'Diseñamos repisas mágicas, iluminación de ensueño y accesorios personalizados adaptados a la armonía de cada habitación infantil.',
@@ -92,7 +97,8 @@ const slides = shallowRef<HeroSlide[]>([
         <div class="container mx-auto px-6 md:px-12 py-20 relative z-10 flex flex-col justify-center min-h-[620px] md:min-h-[700px] max-w-7xl">
           <div class="max-w-2xl space-y-6">
             <div class="flex items-center gap-3 flex-wrap">
-              <span class="inline-block px-3 py-1 bg-bilbola-mint-light text-bilbola-action-focus rounded-full text-sm font-bold tracking-wide shadow-2xs border border-bilbola-mint-depth/20 animate-pulse">
+              <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-bilbola-mint-light text-bilbola-action-focus rounded-full text-sm font-bold tracking-wide shadow-2xs border border-bilbola-mint-depth/20 animate-pulse">
+                <component :is="slide.icon" class="w-4 h-4 text-bilbola-action-focus shrink-0" />
                 {{ slide.tagline }}
               </span>
               <BaseBadge v-if="slide.badgeText" type="customizable" :label="slide.badgeText" />
@@ -112,8 +118,9 @@ const slides = shallowRef<HeroSlide[]>([
             </p>
 
             <div class="pt-4 flex items-center gap-4 flex-wrap">
-              <BaseButton :href="slide.ctaLink" variant="primary" size="lg" class="shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-base px-8 py-4">
-                {{ slide.ctaLabel }} ➔
+              <BaseButton :href="slide.ctaLink" variant="primary" size="lg" class="shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all text-base px-8 py-4 flex items-center">
+                <span>{{ slide.ctaLabel }}</span>
+                <ArrowRight class="w-5 h-5 ml-2.5 shrink-0 inline-block" />
               </BaseButton>
               <BaseButton href="/nosotros" variant="ghost" size="md" class="font-bold text-bilbola-action-primary hover:bg-white/60 backdrop-blur-xs">
                 Conócenos

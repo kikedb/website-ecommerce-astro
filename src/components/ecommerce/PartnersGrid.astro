@@ -1,4 +1,6 @@
 ---
+import { Handshake } from '@lucide/vue';
+
 // 8 Partners con placeholders estilizados
 const partners = [
   { id: 1, name: 'Fundación Infantil de Diseño', category: 'Alianza Certificada', logo: 'https://placehold.co/220x80/fafcfa/1a4f4c/png?text=B%C3%8DLBOLA+PARTNER+1&font=montserrat' },
@@ -14,15 +16,16 @@ const partners = [
 
 <section class="py-16 bg-white font-bilbola border-y border-bilbola-mint-light/40">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-      <span class="px-3 py-1 bg-bilbola-mint-light/50 text-bilbola-action-focus rounded-full text-xs font-extrabold tracking-widest uppercase inline-block">
-        Confianza & Compromiso 🤝
+    <div class="text-center max-w-2xl mx-auto mb-12 space-y-2.5 flex flex-col items-center">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-bilbola-mint-light/50 text-bilbola-action-focus rounded-full text-xs font-extrabold tracking-widest uppercase">
+        <Handshake class="w-3.5 h-3.5 text-bilbola-action-focus shrink-0" />
+        <span>Confianza & Compromiso</span>
       </span>
       <h2 class="text-2xl sm:text-3xl font-black text-bilbola-text-primary tracking-tight font-serif">
         Nuestros Partners y Certificaciones
       </h2>
       <p class="text-sm sm:text-base text-bilbola-text-secondary font-light">
-        Trabajamos mano a mano con artesanos, proveedores sustentables y especialistas para garantizar máxima calidad y seguridad.
+        Trabajamos mano a mano con artesanos, proveedores sustentables y specialists para garantizar máxima calidad y seguridad.
       </p>
     </div>
 

@@ -2,6 +2,7 @@
 import { shallowRef } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Sparkles } from '@lucide/vue';
 import ProductReviewCard, { type Props as ReviewProps } from '@/components/ecommerce/ProductReviewCard.vue';
 
 import 'swiper/css';
@@ -76,9 +77,10 @@ const breakpoints = shallowRef({
 <template>
   <section class="py-20 bg-gradient-to-b from-bilbola-surface-page via-bilbola-mint-light/20 to-bilbola-surface-page font-bilbola overflow-hidden">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
-        <span class="px-3 py-1 bg-bilbola-mint-light text-bilbola-action-focus rounded-full text-xs font-bold tracking-widest uppercase inline-block shadow-2xs">
-          Testimonios Reales ✨
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3 flex flex-col items-center">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-bilbola-mint-light text-bilbola-action-focus rounded-full text-xs font-bold tracking-widest uppercase shadow-2xs">
+          <Sparkles class="w-3.5 h-3.5 text-bilbola-action-focus shrink-0" />
+          <span>Testimonios Reales</span>
         </span>
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-bilbola-text-primary tracking-tight font-serif">
           Lo que dicen familias felices
