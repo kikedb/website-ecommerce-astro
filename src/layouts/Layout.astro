@@ -9,16 +9,17 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bilbola Deco Kids</title>
 </head>
-<body class="bg-brand-secondary text-brand-primary min-h-screen flex flex-col font-serif">
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 p-4 border-b border-brand-gray/20">
+<body class="bg-bilbola-surface-page text-bilbola-text-primary min-h-screen flex flex-col font-bilbola">
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 p-4 border-b border-bilbola-gray-light/30 shadow-xs">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-2xl font-black text-brand-accent tracking-widest">
-                Bílbola <span class="font-light text-brand-primary">deco kids</span>
+            <a href="/" class="text-2xl font-black text-bilbola-mint-depth tracking-widest hover:opacity-80 transition-opacity">
+                Bílbola <span class="font-light text-bilbola-text-primary">deco kids</span>
             </a>
-            <nav class="hidden md:flex space-x-6 text-brand-primary font-semibold">
-                <a href="/" class="hover:text-brand-accent transition-colors">Inicio</a>
-                <a href="/productos" class="hover:text-brand-accent transition-colors">Productos</a>
-                <a href="/nosotros" class="hover:text-brand-accent transition-colors">Nosotros</a>
+            <nav class="hidden md:flex space-x-6 text-bilbola-text-primary font-semibold items-center">
+                <a href="/" class="hover:text-bilbola-mint-depth transition-colors">Inicio</a>
+                <a href="/productos" class="hover:text-bilbola-mint-depth transition-colors">Productos</a>
+                <a href="/nosotros" class="hover:text-bilbola-mint-depth transition-colors">Nosotros</a>
+                <a href="/sistema-diseno" class="px-3 py-1 bg-bilbola-mint-light/40 hover:bg-bilbola-mint-light/60 rounded-bilbola-sm text-bilbola-action-focus transition-all font-bold">Sistema de Diseño</a>
             </nav>
         </div>
     </header>
@@ -26,11 +27,10 @@ import '../styles/global.css';
     <main class="flex-grow">
         <slot />
     </main>
-
-    <footer class="bg-brand-primary text-brand-secondary py-12 mt-12">
+    <footer class="bg-bilbola-action-primary text-bilbola-mint-light py-12 mt-12">
         <div class="container mx-auto text-center px-4">
-            <p class="text-lg">Un mundo de sueños</p>
-            <p class="text-sm mt-4 text-brand-secondary/80">Bilbola Deco Kids &copy; {new Date().getFullYear()}</p>
+            <p class="text-lg font-bilbola font-bold">Un mundo de sueños</p>
+            <p class="text-sm mt-4 text-bilbola-mint-light/80">Bílbola Deco Kids &copy; {new Date().getFullYear()}</p>
         </div>
     </footer>
 </body>

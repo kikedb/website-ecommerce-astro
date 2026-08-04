@@ -1,19 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&family=Source+Serif+Pro:wght@200;300;400;600;700;900&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300;400;600;700;900&display=swap');
 
+/* ==========================================================================
+   1. TOKENS DE MARCA BÍLBOLA - DIRECTIVA @theme (Tailwind CSS v4)
+   ========================================================================== */
 @theme {
-  --color-brand-primary: #978C87;
-  --color-brand-secondary: #BEE9E7;
-  --color-brand-accent: #96CFBE;
-  --color-brand-gray: #BDB7B1;
-  --color-brand-pink: #F5D3D6;
+  /* --- Paleta Oficial Bílbola (Source Colors) --- */
+  --color-bilbola-mint-light: #BEE9E7;
+  --color-bilbola-mint-depth: #96CFBE;
+  --color-bilbola-gray-light: #BDB7B1;
+  --color-bilbola-gray-depth: #978C87;
+
+  /* --- Colores de Soporte (Support Swatches / Visual Estimates) --- */
+  --color-bilbola-support-pink: #F6DFE0;
+  --color-bilbola-support-blue: #B1C9E8;
+  --color-bilbola-support-gray: #A2AAAD;
+  --color-bilbola-support-yellow: #FAF1BA;
+
+  /* --- Propuesta Digital de Interfaces UX/UI --- */
+  --color-bilbola-text-primary: #4A4441;
+  --color-bilbola-text-secondary: #6C625E;
+  --color-bilbola-text-inverse: #FFFFFF;
   
-  --font-serif: "Source Serif Pro", serif;
+  --color-bilbola-surface-page: #FFFFFF;
+  --color-bilbola-surface-neutral: #F5F2F0;
+  --color-bilbola-surface-brand: #BEE9E7;
+  --color-bilbola-surface-warm: #F6DFE0;
+
+  /* --- Acciones e Interactividad --- */
+  --color-bilbola-action-primary: #4A4441;
+  --color-bilbola-action-primary-text: #FFFFFF;
+  --color-bilbola-action-secondary: #96CFBE;
+  --color-bilbola-action-secondary-text: #4A4441;
+  --color-bilbola-action-focus: #2F6F60;
+
+  /* --- Tipografía --- */
+  --font-bilbola: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+
+  /* --- Radios de Borde Modular (Border Radius) --- */
+  --radius-bilbola-sm: 8px;
+  --radius-bilbola-md: 16px;
+  --radius-bilbola-lg: 24px;
+
+  /* --- Tamaños de Fuente Fluidos (Escala Modular Bílbola) --- */
+  --text-caption: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-body-lg: 1.125rem;
+  --text-h3: clamp(1.375rem, 1.15rem + 0.8vw, 1.75rem);
+  --text-h2: clamp(1.75rem, 1.4rem + 1.3vw, 2.25rem);
+  --text-h1: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-display: clamp(2.5rem, 1.75rem + 3vw, 4rem);
 }
 
+/* ==========================================================================
+   2. VARIABLES NATIVAS (:root) PARA INTEROPERABILIDAD CON VUE / JS / SONNER
+   ========================================================================== */
+:root {
+  --bilbola-focus-ring: #2F6F60;
+  --bilbola-primary-text: #4A4441;
+  --bilbola-surface-bg: #FFFFFF;
+}
+
+/* ==========================================================================
+   3. ESTILOS BASE Y NORMALIZACIÓN UX/UI (@layer base)
+   ========================================================================== */
 @layer base {
   body {
-    font-family: var(--font-serif);
-    color: var(--color-brand-primary);
+    background-color: var(--color-bilbola-surface-page);
+    color: var(--color-bilbola-text-primary);
+    font-family: var(--font-bilbola);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- Configuración de Tipografía Fluid por Defecto --- */
+  h1, h2, h3, h4, .font-brand {
+    font-family: var(--font-bilbola);
+    line-height: 1.2;
+    color: var(--color-bilbola-text-primary);
+    font-weight: 700;
+  }
+
+  h1 { font-size: var(--text-h1); }
+  h2 { font-size: var(--text-h2); }
+  h3 { font-size: var(--text-h3); }
+
+  /* --- Accesibilidad: Anillos de Enfoque en Teclado --- */
+  :focus-visible {
+    outline: 2px solid var(--color-bilbola-action-focus);
+    outline-offset: 2px;
+  }
+  
+  /* --- Estilización suave para selecciones de texto --- */
+  ::selection {
+    background-color: var(--color-bilbola-mint-light);
+    color: var(--color-bilbola-text-primary);
   }
 }

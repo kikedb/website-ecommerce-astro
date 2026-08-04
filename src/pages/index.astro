@@ -9,22 +9,22 @@ const products = Array.isArray(productsResponse) ? productsResponse : (productsR
 
 <Layout>
 	<section class="container mx-auto px-4 py-20 text-center">
-		<h1 class="text-5xl md:text-7xl font-black text-brand-primary mb-6">
-			Descubre un mundo de <span class="text-brand-accent">magia</span> y <span class="text-brand-accent">alegría</span>
+		<h1 class="text-5xl md:text-7xl font-black text-bilbola-text-primary mb-6 font-bilbola">
+			Descubre un mundo de <span class="text-bilbola-mint-depth">magia</span> y <span class="text-bilbola-mint-depth">alegría</span>
 		</h1>
-		<p class="text-xl md:text-2xl text-brand-primary/80 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+		<p class="text-xl md:text-2xl text-bilbola-text-primary/80 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
 			En cada rincón, encontrarás una conexión profunda con el niño interior, donde los sueños se hacen realidad y la imaginación vuela sin límites.
 		</p>
 	</section>
 
-	<section class="bg-brand-secondary/30 py-16">
+	<section class="bg-bilbola-mint-light/30 py-16">
 		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-black text-brand-primary mb-10 text-center">Novedades y Favoritos</h2>
+			<h2 class="text-3xl font-black text-bilbola-text-primary mb-10 text-center font-bilbola">Novedades y Favoritos</h2>
 			
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 				{products.map((product) => (
-					<a href={`/productos/${product.id}`} class="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-brand-secondary">
-						<div class="aspect-square relative overflow-hidden bg-brand-gray/10 p-6 flex items-center justify-center">
+					<a href={`/productos/${product.id}`} class="group bg-white rounded-bilbola-md shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-bilbola-mint-light">
+						<div class="aspect-square relative overflow-hidden bg-bilbola-gray-light/10 p-6 flex items-center justify-center">
 							<img 
 								src={getImageUrl(product.image || product.featured_image)} 
 								alt={product.name} 
@@ -32,15 +32,15 @@ const products = Array.isArray(productsResponse) ? productsResponse : (productsR
 							/>
 						</div>
 						<div class="p-6">
-							<h3 class="font-bold text-lg text-brand-primary mb-2 truncate" title={product.name}>{product.name}</h3>
-							<p class="text-brand-accent font-black text-xl">${product.price?.toLocaleString('es-CL')}</p>
+							<h3 class="font-bold text-lg text-bilbola-text-primary mb-2 truncate font-bilbola" title={product.name}>{product.name}</h3>
+							<p class="text-bilbola-mint-depth font-black text-xl font-bilbola">${product.price?.toLocaleString('es-CL')}</p>
 						</div>
 					</a>
 				))}
 			</div>
 
 			{products.length === 0 && (
-				<p class="text-center text-brand-gray py-10">No hay productos disponibles por el momento.</p>
+				<p class="text-center text-bilbola-text-secondary py-10 font-bilbola">No hay productos disponibles por el momento.</p>
 			)}
 		</div>
 	</section>
