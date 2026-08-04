@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import QuantitySelector from '../ui/QuantitySelector.vue';
-import PriceDisplay from './PriceDisplay.vue';
+import QuantitySelector from '@/components/ui/QuantitySelector.vue';
+import PriceDisplay from '@/components/ecommerce/PriceDisplay.vue';
 
 export interface Props {
   id: string | number;

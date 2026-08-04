@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import BaseCheckbox from '../ui/BaseCheckbox.vue';
+import BaseCheckbox from '@/components/ui/BaseCheckbox.vue';
 
 export interface Props {
   modelValue?: string;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import BaseBadge, { type BadgeType } from '../ui/BaseBadge.vue';
-import BaseButton from '../ui/BaseButton.vue';
+import BaseBadge, { type BadgeType } from '@/components/ui/BaseBadge.vue';
+import BaseButton from '@/components/ui/BaseButton.vue';
 
 export interface ProductBadge {
   type: BadgeType;
