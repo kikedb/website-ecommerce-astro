@@ -1,0 +1,76 @@
+---
+// src/components/ecommerce/AboutHero.astro
+import BaseButton from '@/components/ui/BaseButton.vue';
+import { Sparkles, ShoppingBag, Mail, Heart, Award, Leaf } from '@lucide/vue';
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-bilbola-mint-light/25 via-bilbola-surface-neutralSoft/40 to-bilbola-surface-page py-16 lg:py-24 font-bilbola">
+  <!-- Elementos Decorativos del Fondo -->
+  <div class="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-bilbola-surface-warmSoft/50 blur-2xl pointer-events-none -z-10"></div>
+  <div class="absolute top-1/3 -right-16 w-80 h-80 rounded-full bg-bilbola-mint-light/40 blur-3xl pointer-events-none -z-10"></div>
+  
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10">
+    
+    <!-- Badge Sutil con Icono Lucide -->
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-bilbola-pill bg-bilbola-mint-light/70 text-bilbola-action-focus text-xs sm:text-sm font-black tracking-wider uppercase mb-6 shadow-2xs transform hover:scale-105 transition-transform duration-300">
+      <Sparkles class="w-4 h-4 text-bilbola-action-focus shrink-0 animate-pulse" />
+      <span>Sello Bílbola Deco Kids</span>
+    </div>
+
+    <!-- Titular Principal -->
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-bilbola-text-primary tracking-tight leading-[1.15] mb-6">
+      Un mundo de magia para los <span class="relative inline-block text-bilbola-action-focus underline decoration-bilbola-surface-warmSoft decoration-wavy decoration-2 underline-offset-8">sueños de tu infancia</span>
+    </h1>
+
+    <!-- Subtítulo / Narrativo Oficial -->
+    <p class="text-lg sm:text-xl text-bilbola-text-secondary max-w-3xl mx-auto leading-relaxed font-medium mb-10">
+      Buscamos ir mucho más allá de los productos: queremos ser cómplices en la infancia de tus hijos, creando un entorno mágico y seguro donde la imaginación vuela sin límites y cada rincón del hogar respira amor y alegría.
+    </p>
+
+    <!-- CTAs del Hero utilizando BaseButton -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+      <BaseButton href="/productos" variant="primary" size="lg" class="w-full sm:w-auto px-8 py-4 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+        <ShoppingBag class="w-5 h-5 mr-2.5 inline-block shrink-0" />
+        <span>Explorar Nuestros Productos</span>
+      </BaseButton>
+      <BaseButton href="/contacto" variant="outline" size="lg" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-bilbola-gray-light/40 hover:border-bilbola-action-focus hover:bg-bilbola-mint-light/20 text-bilbola-text-primary hover:text-bilbola-action-focus shadow-sm">
+        <Mail class="w-5 h-5 mr-2.5 inline-block shrink-0" />
+        <span>Contáctanos</span>
+      </BaseButton>
+    </div>
+
+    <!-- Tarjetas de Resumen Emocional y Estético -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left pt-6 border-t-2 border-dashed border-bilbola-gray-light/30">
+      <div class="p-6 rounded-bilbola-md bg-white/80 backdrop-blur-sm border border-bilbola-gray-light/30 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 group">
+        <div class="w-12 h-12 rounded-bilbola-sm bg-bilbola-surface-warmSoft flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-bilbola-action-focus">
+          <Heart class="w-6 h-6 stroke-[2]" />
+        </div>
+        <h3 class="text-lg font-black text-bilbola-text-primary mb-2 font-bilbola">Conexión Emocional</h3>
+        <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+          Diseñado para despertar emociones intensas y conectar profundamente con el niño interior de grandes y pequeños.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-bilbola-md bg-white/80 backdrop-blur-sm border border-bilbola-gray-light/30 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 group">
+        <div class="w-12 h-12 rounded-bilbola-sm bg-bilbola-mint-light flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-bilbola-action-focus">
+          <Award class="w-6 h-6 stroke-[2]" />
+        </div>
+        <h3 class="text-lg font-black text-bilbola-text-primary mb-2 font-bilbola">Exclusividad &amp; Calidad</h3>
+        <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+          Mobiliario y decoración cuidadosamente seleccionados con una estética sutil, colores suaves y texturas acogedoras.
+        </p>
+      </div>
+
+      <div class="p-6 rounded-bilbola-md bg-white/80 backdrop-blur-sm border border-bilbola-gray-light/30 shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-1 group">
+        <div class="w-12 h-12 rounded-bilbola-sm bg-[#FAF1BA] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-bilbola-text-primary">
+          <Leaf class="w-6 h-6 stroke-[2]" />
+        </div>
+        <h3 class="text-lg font-black text-bilbola-text-primary mb-2 font-bilbola">Compromiso Seguro</h3>
+        <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+          Materiales puros y nobles, diseñados pensando en el bienestar físico y el desarrollo creativo de cada familia.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>

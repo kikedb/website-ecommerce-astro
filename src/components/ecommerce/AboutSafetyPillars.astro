@@ -1,0 +1,89 @@
+---
+// src/components/ecommerce/AboutSafetyPillars.astro
+import { ShieldCheck, Smile, Cloud, Layers, Droplets } from '@lucide/vue';
+---
+
+<section class="py-20 bg-bilbola-surface-neutralSoft/60 border-t-4 border-dashed border-[#F6DFE0] font-bilbola relative overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-bilbola-pill bg-[#F6DFE0] text-bilbola-text-primary font-extrabold text-xs tracking-wider uppercase mb-3 shadow-2xs">
+        <ShieldCheck class="w-4 h-4 text-bilbola-text-primary shrink-0" />
+        <span>Tranquilidad para mamás y papás</span>
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black text-bilbola-text-primary tracking-tight mt-2 mb-4 font-bilbola">
+        Los 4 Pilares de <span class="text-bilbola-action-focus">Seguridad &amp; Cariño</span>
+      </h2>
+      <p class="text-base sm:text-lg text-bilbola-text-secondary font-medium leading-relaxed">
+        Cada peluche y elemento de decoración en Bílbola está confeccionado con los materiales más puros, nobles y seguros sobre la tierra para acompañar toda la infancia de tus hijos.
+      </p>
+    </div>
+
+    <!-- Grilla de Pilares de Seguridad (2x2) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Pilar 1 -->
+      <div class="bg-white p-8 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start group">
+        <div class="w-16 h-16 shrink-0 rounded-full bg-bilbola-mint-light flex items-center justify-center text-bilbola-action-focus shadow-inner group-hover:scale-110 transition-transform duration-300">
+          <Smile class="w-8 h-8 stroke-[2]" />
+        </div>
+        <div>
+          <h3 class="text-xl font-black text-bilbola-text-primary mb-2 font-bilbola">
+            Rostros 100% Bordados a Hilo
+          </h3>
+          <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+            Para evitar cualquier peligro en bebés curiosos que exploran con la boca, nuestros productos infantiles tienen ojos y sonrisas finamente tejidas en alto relieve, <strong>sin botones ni piezas plásticas sueltas</strong> que puedan desprenderse.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="bg-white p-8 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start group">
+        <div class="w-16 h-16 shrink-0 rounded-full bg-[#B1C9E8]/60 flex items-center justify-center text-bilbola-text-primary shadow-inner group-hover:scale-110 transition-transform duration-300">
+          <Cloud class="w-8 h-8 stroke-[2]" />
+        </div>
+        <div>
+          <h3 class="text-xl font-black text-bilbola-text-primary mb-2 font-bilbola">
+            Relleno Hipoalergénico
+          </h3>
+          <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+            Utilizamos rellenos de fibra súper transpirable de <em class="not-italic font-bold text-bilbola-text-primary">"Nubes de Algodón"</em>, diseñados explícitamente para repeler ácaros del polvo y proteger los pulmones y la piel sensible de los más pequeños.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="bg-white p-8 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start group">
+        <div class="w-16 h-16 shrink-0 rounded-full bg-[#FAF1BA]/80 flex items-center justify-center text-bilbola-text-primary shadow-inner group-hover:scale-110 transition-transform duration-300">
+          <Layers class="w-8 h-8 stroke-[2]" />
+        </div>
+        <div>
+          <h3 class="text-xl font-black text-bilbola-text-primary mb-2 font-bilbola">
+            Costuras Doblemente Reforzadas
+          </h3>
+          <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+            Sabiendo que tu hijo llevará su osito o manta favorita por el jardín, la escuela y la plaza, todas nuestras uniones pasan por un <strong>doble bordado artesanal</strong> y rigurosas pruebas de resistencia para prevenir desgarros al abrazo fuerte.
+          </p>
+        </div>
+      </div>
+
+      <!-- Pilar 4 -->
+      <div class="bg-white p-8 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col sm:flex-row gap-6 items-start group">
+        <div class="w-16 h-16 shrink-0 rounded-full bg-bilbola-mint-depth/40 flex items-center justify-center text-bilbola-action-focus shadow-inner group-hover:scale-110 transition-transform duration-300">
+          <Droplets class="w-8 h-8 stroke-[2]" />
+        </div>
+        <div>
+          <h3 class="text-xl font-black text-bilbola-text-primary mb-2 font-bilbola">
+            100% Lavables en Hogar
+          </h3>
+          <p class="text-sm text-bilbola-text-secondary leading-relaxed font-medium">
+            Porque un juguete amado es propenso a manchas diarias, garantizamos que nuestros productos resisten baños en ciclo suave de lavadora, saliendo totalmente rejuvenecidos y listos para continuar con nuevas aventuras.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AboutHero from '@/components/ecommerce/AboutHero.astro';
+import AboutSafetyPillars from '@/components/ecommerce/AboutSafetyPillars.astro';
+import AboutTeamGrid from '@/components/ecommerce/AboutTeamGrid.astro';
+import AboutChannelsSection from '@/components/ecommerce/AboutChannelsSection.astro';
+import PartnersGrid from '@/components/ecommerce/PartnersGrid.astro';
+import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
+---
+
+<Layout>
+  <!-- 1. Hero Narrativo: El Sello Bílbola y Misión de Magia Infantil -->
+  <AboutHero />
+
+  <!-- 2. Los 4 Pilares de Seguridad y Calidad Artesanal -->
+  <AboutSafetyPillars />
+
+  <!-- 3. Nuestro Equipo de Diseño y Calidad -->
+  <AboutTeamGrid />
+
+  <!-- 4. Dónde Vendemos: Tienda Física y Canales Omnicanal -->
+  <AboutChannelsSection />
+
+  <!-- 5. Alianzas y Certificaciones (Componente Existente Actualizado con Iconos Lucide) -->
+  <PartnersGrid />
+
+  <!-- 6. Banner de Cierre (Reutilizando CtaBanner Existente) -->
+  <CtaBanner 
+    title="¿Listo para dar vida a un dormitorio mágico?"
+    subtitle="Cada visita a nuestro catálogo es una nueva invitación a soñar despiertos y conectar con emociones eternas que alimentan el alma familiar."
+    buttonText="Ver Todos Nuestros Productos"
+    buttonUrl="/productos"
+    variant="mint"
+    iconName="sparkles"
+    badge="Mobiliario &amp; Decoración"
+  />
+</Layout>

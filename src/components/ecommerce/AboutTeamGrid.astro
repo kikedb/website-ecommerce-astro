@@ -1,0 +1,162 @@
+---
+// src/components/ecommerce/AboutTeamGrid.astro
+import { Users, Sparkles, Search, BookOpen, Palette, HeartHandshake } from '@lucide/vue';
+---
+
+<section class="py-24 bg-white font-bilbola relative overflow-hidden">
+  <!-- Fondo decorativo suave -->
+  <div class="absolute -right-20 bottom-10 w-96 h-96 rounded-full bg-bilbola-mint-light/20 blur-3xl pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+    
+    <!-- Encabezado -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-bilbola-pill bg-bilbola-mint-light/50 text-bilbola-action-focus font-extrabold text-xs tracking-wider uppercase mb-3 shadow-2xs">
+        <Users class="w-4 h-4 text-bilbola-action-focus shrink-0" />
+        <span>Artesanos de la Magia</span>
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black text-bilbola-text-primary tracking-tight mt-2 mb-4 font-bilbola">
+        Conoce a Nuestro Equipo de Diseño
+      </h2>
+      <p class="text-base sm:text-lg text-bilbola-text-secondary font-medium leading-relaxed">
+        Nos apasiona crear espacios mágicos y únicos que conectan con el niño interior y generan experiencias inolvidables llenas de amor y alegría para toda la familia.
+      </p>
+    </div>
+
+    <!-- Grilla Asimétrica y Estética de Miembros del Equipo -->
+    <div class="space-y-8">
+      
+      <!-- Fila Superior: Fundadora / Visionaria -->
+      <div class="bg-gradient-to-r from-bilbola-surface-neutralSoft to-bilbola-mint-light/30 p-8 sm:p-10 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300">
+        <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 shrink-0 rounded-full bg-white border-4 border-bilbola-mint-light flex items-center justify-center text-bilbola-action-focus shadow-md transform hover:rotate-6 transition-transform duration-300">
+            <Sparkles class="w-12 h-12 stroke-[2]" />
+          </div>
+          <div class="flex-grow">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 mb-2">
+              <h3 class="text-2xl font-black text-bilbola-text-primary font-bilbola">Macarena</h3>
+              <span class="px-3 py-1 rounded-full bg-bilbola-action-focus text-white text-xs font-bold uppercase tracking-wider">
+                La Visionaria
+              </span>
+            </div>
+            <p class="text-sm font-bold text-bilbola-action-focus/80 mb-3">Fundadora &amp; Líder Creativa</p>
+            <p class="text-sm sm:text-base text-bilbola-text-secondary font-medium leading-relaxed">
+              Su pasión por el diseño y su visión inspiradora son la base de todo lo que hacemos en Bílbola. Siempre en la búsqueda activa de nuevas tendencias, armonías de color y estilos que agreguen un toque único y verdaderamente especial a cada uno de nuestros productos y espacios infantiles.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fila Inferior: Grilla 2x2 para los demás talentos co-creadores -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- JP -->
+        <div class="bg-white p-7 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded-full bg-[#B1C9E8]/40 border-2 border-white shadow-sm flex items-center justify-center text-bilbola-text-primary">
+                <Search class="w-7 h-7 stroke-[2]" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Juan Pablo</h4>
+                </div>
+                <span class="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-[#B1C9E8]/30 text-bilbola-text-primary font-bold text-[11px] uppercase tracking-wide">
+                  El Investigador de Calidad
+                </span>
+              </div>
+            </div>
+            <p class="text-sm text-bilbola-text-secondary font-medium leading-relaxed">
+              JP es nuestro experto en selección de materiales y control de excelencia. Investiga y evalúa exhaustivamente cada artículo para asegurar que cumpla con nuestros más exigentes estándares de exclusividad, durabilidad y seguridad no tóxica.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-bilbola-gray-light/20 flex items-center gap-2 text-xs text-bilbola-text-secondary font-bold">
+            <span class="w-2 h-2 rounded-full bg-bilbola-action-focus"></span>
+            Garantía de calidad duradera
+          </div>
+        </div>
+
+        <!-- Renata -->
+        <div class="bg-white p-7 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded-full bg-[#F6DFE0] border-2 border-white shadow-sm flex items-center justify-center text-bilbola-text-primary">
+                <BookOpen class="w-7 h-7 stroke-[2]" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Renata</h4>
+                </div>
+                <span class="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-[#F6DFE0] text-bilbola-text-primary font-bold text-[11px] uppercase tracking-wide">
+                  La Cuentacuentos
+                </span>
+              </div>
+            </div>
+            <p class="text-sm text-bilbola-text-secondary font-medium leading-relaxed">
+              Encargada de experiencias que estimulen la imaginación. Su creatividad y amor por los cuentos de fantasía hacen que cada interacción con Bílbola esté llena de narrativas mágicas que inspiran a niños y adultos por igual.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-bilbola-gray-light/20 flex items-center gap-2 text-xs text-bilbola-text-secondary font-bold">
+            <span class="w-2 h-2 rounded-full bg-[#F6DFE0]"></span>
+            Fantasía e inspiración infantil
+          </div>
+        </div>
+
+        <!-- Mauricio -->
+        <div class="bg-white p-7 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded-full bg-bilbola-mint-light border-2 border-white shadow-sm flex items-center justify-center text-bilbola-action-focus">
+                <Palette class="w-7 h-7 stroke-[2]" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Mauricio</h4>
+                </div>
+                <span class="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-bilbola-mint-light text-bilbola-action-focus font-bold text-[11px] uppercase tracking-wide">
+                  El Maestro de la Estética
+                </span>
+              </div>
+            </div>
+            <p class="text-sm text-bilbola-text-secondary font-medium leading-relaxed">
+              Nuestro talentoso diseñador. Su ojo minucioso para el detalle y su habilidad para crear ambientes sutilmente encantadores hacen que cada rincón de nuestros catálogos refleje calidez, elegancia y la más pura esencia de la infancia.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-bilbola-gray-light/20 flex items-center gap-2 text-xs text-bilbola-text-secondary font-bold">
+            <span class="w-2 h-2 rounded-full bg-bilbola-mint-depth"></span>
+            Armonía visual y calidez
+          </div>
+        </div>
+
+        <!-- Anita -->
+        <div class="bg-white p-7 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-16 h-16 rounded-full bg-[#FAF1BA] border-2 border-white shadow-sm flex items-center justify-center text-bilbola-text-primary">
+                <HeartHandshake class="w-7 h-7 stroke-[2]" />
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Anita</h4>
+                </div>
+                <span class="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-[#FAF1BA] text-bilbola-text-primary font-bold text-[11px] uppercase tracking-wide">
+                  La Encantadora de Clientes
+                </span>
+              </div>
+            </div>
+            <p class="text-sm text-bilbola-text-secondary font-medium leading-relaxed">
+              Amable encargada de atención al cliente y asesoría de decoración. Se asegura de que cada consulta sea atendida con dulzura, guiando a las familias y respondiendo preguntas con la máxima calidez y dedicación.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-bilbola-gray-light/20 flex items-center gap-2 text-xs text-bilbola-text-secondary font-bold">
+            <span class="w-2 h-2 rounded-full bg-[#FAF1BA]/90"></span>
+            Atención cercana y personalizada
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
