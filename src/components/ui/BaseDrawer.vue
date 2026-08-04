@@ -11,6 +11,7 @@ export interface Props {
   modelValue: boolean;
   title?: string;
   side?: 'right' | 'left';
+  widthClass?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -48,8 +49,8 @@ function close() {
       <div class="fixed inset-0 overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
           <div
-            class="pointer-events-none fixed inset-y-0 flex max-w-full pl-10"
-            :class="side === 'right' ? 'right-0' : 'left-0 pl-0 pr-10'"
+            class="pointer-events-none fixed inset-y-0 flex max-w-full"
+            :class="side === 'right' ? 'right-0 pl-10' : 'left-0'"
           >
             <TransitionChild
               as="template"
@@ -60,7 +61,7 @@ function close() {
               leave-from="translate-x-0"
               :leave-to="side === 'right' ? 'translate-x-full' : '-translate-x-full'"
             >
-              <DialogPanel class="pointer-events-auto w-screen max-w-md">
+              <DialogPanel :class="['pointer-events-auto', widthClass || (side === 'left' ? 'w-[90vw] max-w-[340px]' : 'w-screen max-w-md')]">
                 <div class="flex h-full flex-col bg-white shadow-2xl">
                   <!-- Header -->
                   <div class="flex items-center justify-between px-6 py-5 border-b border-bilbola-gray-light/30 bg-bilbola-mint-light/20">

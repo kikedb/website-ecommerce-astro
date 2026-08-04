@@ -2,6 +2,7 @@
 import '@fontsource-variable/source-serif-4';
 import '@fontsource-variable/source-serif-4/wght-italic.css';
 import '@/styles/global.css';
+import Navbar from '@/components/ecommerce/Navbar.vue';
 ---
 
 <!DOCTYPE html>
@@ -14,19 +15,7 @@ import '@/styles/global.css';
     <title>Bílbola | Un mundo de sueños</title>
 </head>
 <body class="bg-bilbola-surface-page text-bilbola-text-primary min-h-screen flex flex-col font-bilbola">
-    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 p-4 border-b border-bilbola-gray-light/30 shadow-xs">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 hover:opacity-85 transition-opacity" title="Bílbola">
-                <img src="/logo-bilbola.png" alt="Logo Bílbola" class="h-10 md:h-12 w-auto object-contain" />
-            </a>
-            <nav class="hidden md:flex space-x-6 text-bilbola-text-primary font-semibold items-center">
-                <a href="/" class="hover:text-bilbola-mint-depth transition-colors">Inicio</a>
-                <a href="/productos" class="hover:text-bilbola-mint-depth transition-colors">Productos</a>
-                <a href="/nosotros" class="hover:text-bilbola-mint-depth transition-colors">Nosotros</a>
-                <a href="/sistema-diseno" class="px-3 py-1 bg-bilbola-mint-light/40 hover:bg-bilbola-mint-light/60 rounded-bilbola-sm text-bilbola-action-focus transition-all font-bold">Sistema de Diseño</a>
-            </nav>
-        </div>
-    </header>
+    <Navbar client:load />
 
     <main class="flex-grow">
         <slot />
