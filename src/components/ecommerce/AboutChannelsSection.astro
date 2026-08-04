@@ -1,50 +1,55 @@
 ---
 // src/components/ecommerce/AboutChannelsSection.astro
 import BaseButton from '@/components/ui/BaseButton.vue';
-import { MapPin, Store, ShoppingBag, Truck, ExternalLink, ShoppingCart, Box, Clock } from '@lucide/vue';
+import { MapPin, Store, ShoppingBag, Truck, ExternalLink, ShoppingCart, Box, Clock, ShieldCheck } from '@lucide/vue';
 ---
 
-<section class="py-24 bg-bilbola-surface-neutralSoft/50 border-t-4 border-dashed border-bilbola-mint-light/80 font-bilbola relative">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+<section class="py-28 bg-gradient-to-b from-bilbola-surface-neutralSoft/50 via-bilbola-mint-light/15 to-white border-t border-bilbola-mint-light/60 font-bilbola relative overflow-hidden">
+  
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
     
-    <!-- Encabezado de la Sección -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-bilbola-pill bg-bilbola-mint-depth text-white font-extrabold text-xs tracking-wider uppercase mb-3 shadow-2xs">
+    <!-- Encabezado Editorial -->
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-bilbola-pill bg-bilbola-mint-depth text-white font-black text-xs tracking-widest uppercase mb-4 shadow-2xs">
         <MapPin class="w-4 h-4 text-white shrink-0" />
         <span>Presencia &amp; Disponibilidad</span>
       </span>
-      <h2 class="text-3xl sm:text-4xl font-black text-bilbola-text-primary tracking-tight mt-2 mb-4 font-bilbola">
+      <h2 class="text-4xl sm:text-5xl font-black text-bilbola-text-primary tracking-tight mb-6 font-bilbola">
         ¿Dónde Puedes Encontrarnos?
       </h2>
-      <p class="text-base sm:text-lg text-bilbola-text-secondary font-medium leading-relaxed">
-        Disfruta de nuestros productos exclusivos desde la comodidad de tu hogar a través de nuestros socios digitales o visítanos directamente en nuestra tienda física en Vitacura.
+      <p class="text-base sm:text-xl text-bilbola-text-secondary font-medium leading-relaxed">
+        Disfruta de nuestra línea de decoración exclusiva desde la comodidad de tu hogar a través de nuestros socios de confianza o visítanos en nuestro showroom físico en Vitacura.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
       
-      <!-- Bloque Izquierdo: Tienda Física Oficial -->
-      <div class="lg:col-span-5 bg-white p-8 sm:p-10 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-bilbola-mint-light/20 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
+      <!-- Bloque Izquierdo: Showroom / Tienda Física Oficial (Estilo Flagship Studio) -->
+      <div class="lg:col-span-5 bg-gradient-to-b from-white to-bilbola-surface-neutralSoft p-9 sm:p-12 rounded-bilbola-lg border-2 border-bilbola-mint-depth/30 shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-40 h-40 bg-bilbola-mint-light/30 rounded-bl-[100px] pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
         
         <div>
-          <div class="inline-flex p-3.5 rounded-bilbola-sm bg-bilbola-surface-warmSoft text-bilbola-text-primary mb-6 shadow-2xs">
-            <Store class="w-7 h-7 stroke-[2]" />
+          <div class="inline-flex p-4 rounded-bilbola-md bg-bilbola-surface-warmSoft text-bilbola-text-primary mb-8 shadow-sm group-hover:scale-105 transition-transform">
+            <Store class="w-8 h-8 stroke-[2]" />
           </div>
-          <h3 class="text-2xl font-black text-bilbola-text-primary font-bilbola mb-2">
+          <span class="text-xs font-extrabold text-bilbola-action-focus uppercase tracking-widest block mb-1">Showroom Oficial</span>
+          <h3 class="text-3xl font-black text-bilbola-text-primary font-bilbola mb-2 tracking-tight">
             Nuestra Tienda Física
           </h3>
-          <p class="text-sm font-extrabold text-bilbola-action-focus mb-4 uppercase tracking-wide">
+          <p class="text-sm font-extrabold text-bilbola-text-secondary mb-6 uppercase tracking-wider">
             Pueblo del Inglés — Local 19
           </p>
           
-          <div class="space-y-3 text-sm text-bilbola-text-secondary font-medium leading-relaxed">
+          <div class="space-y-4 text-base text-bilbola-text-secondary font-normal leading-relaxed">
             <p>
-              Estamos encantados de recibirte en nuestro espacio, donde podrás explorar en persona nuestros textiles acolchados, muebles y sumergirte en el ambiente mágico que hemos creado para ti.
+              Estamos felices de recibirte en nuestro espacio, diseñado para que explores en persona la suavidad de nuestros textiles, maderas nobles y te sumerjas en la magia visual que hemos creado.
             </p>
-            <div class="p-4 rounded-bilbola-sm bg-bilbola-surface-neutralSoft/80 border-l-4 border-bilbola-action-focus mt-6">
-              <p class="font-bold text-bilbola-text-primary text-xs uppercase tracking-wider mb-1">Dirección Oficial</p>
-              <p class="text-sm font-semibold text-bilbola-text-secondary">
+            <div class="p-5 rounded-bilbola-md bg-white border-l-4 border-bilbola-action-focus shadow-xs mt-6">
+              <p class="font-black text-bilbola-text-primary text-xs uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <MapPin class="w-3.5 h-3.5 text-bilbola-action-focus" />
+                Dirección Comercial
+              </p>
+              <p class="text-sm font-semibold text-bilbola-text-secondary leading-snug">
                 Avenida Vitacura 6195, Local 19,<br/>
                 Pueblo del Inglés, Vitacura, Santiago.
               </p>
@@ -52,81 +57,83 @@ import { MapPin, Store, ShoppingBag, Truck, ExternalLink, ShoppingCart, Box, Clo
           </div>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-bilbola-gray-light/20">
+        <div class="mt-10 pt-6 border-t border-bilbola-gray-light/30">
           <BaseButton 
             href="https://maps.google.com/?q=Pueblo+del+Ingles+Vitacura+Local+19" 
-            variant="ghost" 
-            size="sm"
-            class="w-full sm:w-auto bg-bilbola-mint-light/20 hover:bg-bilbola-mint-light/40 text-bilbola-action-focus font-extrabold py-2.5 px-4 rounded-bilbola-sm"
+            variant="primary" 
+            size="lg"
+            class="w-full font-black text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3 py-4"
           >
-            <MapPin class="w-4 h-4 mr-2 inline-block shrink-0" />
+            <MapPin class="w-5 h-5 shrink-0" />
             <span>Ver mapa de ubicación</span>
-            <ExternalLink class="w-3.5 h-3.5 ml-2 inline-block shrink-0 opacity-70" />
+            <ExternalLink class="w-4 h-4 shrink-0 opacity-80" />
           </BaseButton>
         </div>
       </div>
 
       <!-- Bloque Derecho: Canales Digitales y Apps de Despacho Rápido -->
-      <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+      <div class="lg:col-span-7 flex flex-col justify-between space-y-8">
         
-        <!-- Canales Retail Online -->
-        <div class="bg-white p-8 sm:p-9 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300 flex-grow">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="p-2.5 rounded-bilbola-sm bg-bilbola-mint-light/40 text-bilbola-action-focus">
-              <ShoppingBag class="w-6 h-6 stroke-[2]" />
+        <!-- Canales Retail Online (Grandes Tiendas y Tiendas de Diseño) -->
+        <div class="bg-white p-8 sm:p-11 rounded-bilbola-lg border border-bilbola-gray-light/40 shadow-md hover:shadow-xl transition-all duration-500 flex-grow relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-bilbola-mint-light/20 rounded-bl-full pointer-events-none"></div>
+          
+          <div class="flex items-center gap-4 mb-6">
+            <span class="p-3 rounded-bilbola-md bg-bilbola-mint-light/50 text-bilbola-action-focus shadow-xs">
+              <ShoppingBag class="w-7 h-7 stroke-[2]" />
             </span>
             <div>
-              <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Tiendas en Línea y Grandes Tiendas</h4>
-              <p class="text-xs text-bilbola-text-secondary font-semibold">Encuentra nuestro catálogo seleccionado 24/7</p>
+              <h4 class="text-2xl font-black text-bilbola-text-primary font-bilbola">Tiendas en Línea &amp; Retail</h4>
+              <p class="text-xs text-bilbola-text-secondary font-bold uppercase tracking-wide">Encuentra nuestro catálogo oficial 24/7</p>
             </div>
           </div>
           
-          <p class="text-sm text-bilbola-text-secondary font-medium leading-relaxed mb-6">
-            Además de nuestra tienda oficial <strong class="text-bilbola-text-primary">Bilbola.cl</strong>, estamos disponibles en las plataformas de e-commerce y diseño más reconocidas del país:
+          <p class="text-sm sm:text-base text-bilbola-text-secondary font-normal leading-relaxed mb-8">
+            Además de nuestra tienda online oficial <strong class="text-bilbola-text-primary font-bold">Bilbola.cl</strong>, estamos presentes y validados en los marketplaces de e-commerce y curatorías de diseño más prestigiosas del país:
           </p>
           
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div class="py-3 px-4 rounded-bilbola-sm bg-bilbola-surface-neutralSoft font-bold text-bilbola-text-primary text-center text-sm shadow-2xs hover:bg-bilbola-mint-light/30 transition-colors border border-bilbola-gray-light/20">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="py-4 px-3 rounded-bilbola-md bg-bilbola-surface-neutralSoft/80 hover:bg-bilbola-mint-light/40 font-extrabold text-bilbola-text-primary text-center text-sm shadow-2xs border border-bilbola-gray-light/20 transform hover:-translate-y-1 transition-all duration-300 cursor-default">
               Falabella
             </div>
-            <div class="py-3 px-4 rounded-bilbola-sm bg-bilbola-surface-neutralSoft font-bold text-bilbola-text-primary text-center text-sm shadow-2xs hover:bg-bilbola-mint-light/30 transition-colors border border-bilbola-gray-light/20">
+            <div class="py-4 px-3 rounded-bilbola-md bg-bilbola-surface-neutralSoft/80 hover:bg-bilbola-mint-light/40 font-extrabold text-bilbola-text-primary text-center text-sm shadow-2xs border border-bilbola-gray-light/20 transform hover:-translate-y-1 transition-all duration-300 cursor-default">
               Ripley
             </div>
-            <div class="py-3 px-4 rounded-bilbola-sm bg-bilbola-surface-neutralSoft font-bold text-bilbola-text-primary text-center text-sm shadow-2xs hover:bg-bilbola-mint-light/30 transition-colors border border-bilbola-gray-light/20">
+            <div class="py-4 px-3 rounded-bilbola-md bg-bilbola-surface-neutralSoft/80 hover:bg-bilbola-mint-light/40 font-extrabold text-bilbola-text-primary text-center text-sm shadow-2xs border border-bilbola-gray-light/20 transform hover:-translate-y-1 transition-all duration-300 cursor-default">
               París
             </div>
-            <div class="py-3 px-4 rounded-bilbola-sm bg-bilbola-surface-neutralSoft font-bold text-bilbola-text-primary text-center text-sm shadow-2xs hover:bg-bilbola-mint-light/30 transition-colors border border-bilbola-gray-light/20">
+            <div class="py-4 px-3 rounded-bilbola-md bg-bilbola-surface-neutralSoft/80 hover:bg-bilbola-mint-light/40 font-extrabold text-bilbola-text-primary text-center text-sm shadow-2xs border border-bilbola-gray-light/20 transform hover:-translate-y-1 transition-all duration-300 cursor-default">
               ED Diseño
             </div>
           </div>
         </div>
 
         <!-- Apps de Entrega a Domicilio Rápida -->
-        <div class="bg-gradient-to-r from-white via-white to-bilbola-mint-light/20 p-8 sm:p-9 rounded-bilbola-lg border border-bilbola-gray-light/30 shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="flex items-center gap-3 mb-4">
-            <span class="p-2.5 rounded-bilbola-sm bg-[#FAF1BA] text-bilbola-text-primary">
-              <Truck class="w-6 h-6 stroke-[2]" />
+        <div class="bg-gradient-to-r from-white via-white to-[#FAF1BA]/25 p-8 sm:p-11 rounded-bilbola-lg border border-bilbola-gray-light/40 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="p-3 rounded-bilbola-md bg-[#FAF1BA] text-bilbola-text-primary shadow-xs">
+              <Truck class="w-7 h-7 stroke-[2]" />
             </span>
             <div>
-              <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Despacho Inmediato por Apps</h4>
-              <p class="text-xs text-bilbola-text-secondary font-semibold">Entrega directa en la puerta de tu hogar</p>
+              <h4 class="text-2xl font-black text-bilbola-text-primary font-bilbola">Despacho Exprés por Apps</h4>
+              <p class="text-xs text-bilbola-text-secondary font-bold uppercase tracking-wide">Entrega directa en la puerta de tu hogar</p>
             </div>
           </div>
 
-          <p class="text-sm text-bilbola-text-secondary font-medium leading-relaxed mb-6">
-            Si necesitas tu regalo o decoración hoy mismo, contamos con servicios de entrega exprés a través de tus aplicaciones móviles de confianza:
+          <p class="text-sm sm:text-base text-bilbola-text-secondary font-normal leading-relaxed mb-8">
+            Si necesitas tu regalo de cumpleaños o pieza decorativa hoy mismo, contamos con servicios de despacho inmediato a través de tus aplicaciones de delivery de confianza:
           </p>
 
-          <div class="flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-bilbola-text-primary font-extrabold text-xs tracking-wide shadow-xs border border-bilbola-gray-light/30 hover:border-bilbola-action-focus transition-colors">
+          <div class="flex flex-wrap items-center gap-4">
+            <span class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-bilbola-text-primary font-extrabold text-xs sm:text-sm tracking-wide shadow-sm border border-bilbola-gray-light/40 hover:border-bilbola-action-focus hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 cursor-default">
               <ShoppingCart class="w-4 h-4 text-bilbola-action-focus shrink-0" />
               <span>Cornershop</span>
             </span>
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-bilbola-text-primary font-extrabold text-xs tracking-wide shadow-xs border border-bilbola-gray-light/30 hover:border-bilbola-action-focus transition-colors">
+            <span class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-bilbola-text-primary font-extrabold text-xs sm:text-sm tracking-wide shadow-sm border border-bilbola-gray-light/40 hover:border-bilbola-action-focus hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 cursor-default">
               <Clock class="w-4 h-4 text-bilbola-action-focus shrink-0" />
               <span>Rappi</span>
             </span>
-            <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-bilbola-text-primary font-extrabold text-xs tracking-wide shadow-xs border border-bilbola-gray-light/30 hover:border-bilbola-action-focus transition-colors">
+            <span class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-bilbola-text-primary font-extrabold text-xs sm:text-sm tracking-wide shadow-sm border border-bilbola-gray-light/40 hover:border-bilbola-action-focus hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 cursor-default">
               <Box class="w-4 h-4 text-bilbola-action-focus shrink-0" />
               <span>Pedidos Ya</span>
             </span>
