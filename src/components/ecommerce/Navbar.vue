@@ -9,6 +9,7 @@ import {
   Home, 
   Smile, 
   Package, 
+  Mail,
   ArrowRight, 
   Trash2, 
   Sparkles 
@@ -31,7 +32,8 @@ const {
 const navLinks = [
   { label: 'Inicio', href: '/', icon: Home },
   { label: 'Conócenos', href: '/conocenos', icon: Smile },
-  { label: 'Productos', href: '/productos', icon: Package }
+  { label: 'Productos', href: '/productos', icon: Package },
+  { label: 'Contacto', href: '/contacto', icon: Mail }
 ];
 </script>
 

@@ -3,6 +3,7 @@ import '@fontsource-variable/source-serif-4';
 import '@fontsource-variable/source-serif-4/wght-italic.css';
 import '@/styles/global.css';
 import Navbar from '@/components/ecommerce/Navbar.vue';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!DOCTYPE html>
@@ -13,9 +14,10 @@ import Navbar from '@/components/ecommerce/Navbar.vue';
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="description" content="Bílbola - Decoración y mobiliario infantil con diseño artesanal y sustentable para dormitorios llenos de magia." />
     <title>Bílbola | Un mundo de sueños</title>
+    <ClientRouter />
 </head>
 <body class="bg-bilbola-surface-page text-bilbola-text-primary min-h-screen flex flex-col font-bilbola">
-    <Navbar client:load />
+    <Navbar client:load transition:persist />
 
     <main class="flex-grow">
         <slot />
