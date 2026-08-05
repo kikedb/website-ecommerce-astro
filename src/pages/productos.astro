@@ -1,20 +1,57 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import BreadcrumbNav from '@/components/ui/BreadcrumbNav.vue';
+import ProductCatalog from '@/components/ecommerce/ProductCatalog.vue';
+import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
+
+const breadcrumbItems = [
+  { label: 'Catálogo de Productos', current: true }
+];
 ---
 
-<Layout>
-  <section class="container mx-auto px-4 py-20 text-center min-h-[60vh] flex flex-col items-center justify-center font-bilbola">
-    <span class="px-3.5 py-1.5 bg-bilbola-mint-light/50 text-bilbola-action-focus rounded-bilbola-sm text-xs font-black uppercase tracking-widest mb-4 inline-block shadow-2xs">
-      ✨ Catálogo 2026
-    </span>
-    <h1 class="text-4xl md:text-6xl font-black text-bilbola-text-primary mb-4 tracking-tight">
-      Nuestros Productos
-    </h1>
-    <p class="text-base md:text-lg text-bilbola-text-secondary max-w-lg mx-auto leading-relaxed font-medium">
-      El catálogo completo de camas y decoración infantil está pendiente de carga en esta vista. ¡Muy pronto estará listo para explorar!
-    </p>
-    <a href="/" class="mt-8 px-6 py-3 bg-bilbola-action-primary text-white font-bold rounded-bilbola-sm shadow-md hover:bg-bilbola-mint-depth transition-all text-sm">
-      Volver a Inicio
-    </a>
+<Layout 
+  title="Catálogo de Productos - Bilbola" 
+  description="Descubre nuestro catálogo completo de camas Montessori, lámparas de nube, murales, repisas y textiles infantiles con envío a todo Chile."
+>
+  {/* Navegación por Migas de Pan */}
+  <div class="bg-bilbola-surface-page/80 border-b border-bilbola-gray-light/20 py-3.5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <BreadcrumbNav client:load items={breadcrumbItems} />
+    </div>
+  </div>
+
+  {/* Encabezado del Catálogo con Estética Refinada y Atmosférica (Frontend Design) */}
+  <header class="relative bg-gradient-to-b from-bilbola-mint-light/50 via-bilbola-surface-page to-white py-16 sm:py-24 overflow-hidden font-bilbola border-b border-bilbola-gray-light/25">
+    {/* Elementos Decorativos de Fondo (Gradiant Meshes & Atmosphere) */}
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-bilbola-mint-light/60 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl mx-auto space-y-4">
+      <span class="inline-flex items-center gap-1.5 px-4 py-1.5 bg-white text-bilbola-action-focus rounded-full text-xs font-black uppercase tracking-widest shadow-2xs border border-bilbola-mint-depth/40">
+        ✨ Catálogo Oficial 2026
+      </span>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-bilbola-text-primary tracking-tight font-serif leading-tight">
+        Sueños & Decoración Infantil
+      </h1>
+      <p class="text-base sm:text-lg md:text-xl text-bilbola-text-secondary leading-relaxed font-light max-w-2xl mx-auto">
+        Explora nuestra colección artesanal de muebles, camas Montessori y accesorios mágicos. Diseños seguros, materiales eco-amigables y acabados personalizados para el refugio de tus hijos.
+      </p>
+    </div>
+  </header>
+
+  {/* Sección Interactiva del Catálogo con Hidratación Vue */}
+  <section class="min-h-[700px] bg-white">
+    <ProductCatalog client:load />
   </section>
+
+  {/* Banner Final de Conversión / Customización */}
+  <CtaBanner
+    title="¿Buscamos diseñar un proyecto a medida para tu habitación?"
+    subtitle="Nuestro taller trabaja con madera nativa y acabados personalizados. Hablemos sobre las dimensiones de tu espacio."
+    buttonText="Cotizar Proyecto Personalizado"
+    buttonUrl="/contacto"
+    variant="dark"
+    iconName="message-square"
+    badge="Taller Artesanal"
+  />
 </Layout>

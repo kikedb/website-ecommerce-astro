@@ -24,7 +24,7 @@ export async function fetchProducts(params = {}) {
                 return JSON.parse(text.substring(jsonObjIndex));
             }
             return JSON.parse(text.substring(jsonStartIndex));
-        } catch (e) {
+        } catch (e: any) {
             throw new Error(`Invalid JSON: ${e.message}. Content starts with: ${text.substring(0, 100)}`);
         }
     } catch (error) {

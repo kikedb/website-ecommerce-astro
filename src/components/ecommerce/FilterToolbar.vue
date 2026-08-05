@@ -73,6 +73,15 @@ function clearAll() {
   onlyInStock.value = false;
   emit('clearAll');
 }
+
+defineExpose({
+  clearAll,
+  toggleOption,
+  selectedOptions,
+  priceRange,
+  onlyInStock,
+  notifyChange
+});
 </script>
 
 <template>
