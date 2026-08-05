@@ -190,14 +190,14 @@ const navLinks = [
           </p>
 
           <!-- Botón CTA Checkout -->
-          <button
-            type="button"
+          <a
+            href="/checkout"
             class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-bilbola-sm bg-bilbola-action-primary text-white font-black text-sm tracking-wide shadow-lg hover:bg-bilbola-mint-depth transition-all duration-200 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bilbola-action-focus focus:ring-offset-2 group"
             @click="isCartOpen = false"
           >
             <span>Proceder con el Pago</span>
             <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1.5 duration-200" />
-          </button>
+          </a>
           
           <div class="text-center pt-0.5">
             <button

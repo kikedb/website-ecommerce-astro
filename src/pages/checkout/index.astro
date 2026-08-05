@@ -1,0 +1,10 @@
+---
+import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
+import CheckoutWizard from '@/components/checkout/CheckoutWizard.vue';
+---
+
+<CheckoutLayout title="Finalizar Compra | Bílbola Deco Kids">
+    <div class="w-full animate-fadeIn">
+        <CheckoutWizard client:load />
+    </div>
+</CheckoutLayout>
