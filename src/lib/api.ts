@@ -1,3 +1,5 @@
+import { getProductBySlug, slugify } from '@/lib/mockCatalog';
+
 export const API_URL = "http://admin-ecommerce-backend.test/api/shop";
 export const STORAGE_URL = 'http://admin-ecommerce-backend.test/storage';
 
@@ -15,10 +17,8 @@ export async function fetchProducts(params = {}) {
         }
         const text = await res.text();
         try {
-            // Robust parsing: Find the start of JSON array
             const jsonStartIndex = text.indexOf('[');
             if (jsonStartIndex === -1) {
-                // Try object if pagination is returned
                 const jsonObjIndex = text.indexOf('{');
                 if (jsonObjIndex === -1) throw new Error('No JSON found');
                 return JSON.parse(text.substring(jsonObjIndex));
@@ -45,6 +45,31 @@ export async function fetchCategories() {
         console.error('Error fetching categories:', error);
         return [];
     }
+}
+
+export async function fetchProductBySlug(slug: string) {
+    try {
+        const res = await fetch(`${API_URL}/products/${slug}`, {
+            headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+            const text = await res.text();
+            const jsonObjIndex = text.indexOf('{');
+            if (jsonObjIndex !== -1) {
+                const data = JSON.parse(text.substring(jsonObjIndex));
+                return data.data || data;
+            }
+        }
+    } catch (error) {
+        // Fallback en silencio al catálogo mock cuando el backend no está disponible
+    }
+    return getProductBySlug(slug) || null;
+}
+
+export function getProductUrl(product: any): string {
+    if (!product) return '/productos';
+    const slug = product.slug || (product.name ? slugify(product.name) : null) || product.id;
+    return `/productos/${slug}`;
 }
 
 export function getImageUrl(path: string | null) {

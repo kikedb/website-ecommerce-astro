@@ -52,9 +52,9 @@ function onClearAll() {
   }
 }
 
-function onProductAction(productId: string | number) {
+function onProductAction(slugOrId: string | number) {
   if (typeof window !== 'undefined') {
-    window.location.href = `/productos/${productId}`;
+    window.location.href = `/productos/${slugOrId}`;
   }
 }
 </script>
@@ -95,6 +95,7 @@ function onProductAction(productId: string | number) {
               v-for="product in paginatedProducts"
               :key="product.id"
               :id="product.id"
+              :slug="product.slug"
               :name="product.name"
               :price="product.price"
               :original-price="product.originalPrice"
@@ -102,9 +103,9 @@ function onProductAction(productId: string | number) {
               :in-stock="product.inStock"
               :is-customizable="product.isCustomizable"
               :badges="product.badges"
-              :product-url="`/productos/${product.id}`"
+              :product-url="`/productos/${product.slug || product.id}`"
               cta-label="Ver detalles"
-              @action="onProductAction(product.id)"
+              @action="onProductAction(product.slug || product.id)"
             />
           </transition-group>
 

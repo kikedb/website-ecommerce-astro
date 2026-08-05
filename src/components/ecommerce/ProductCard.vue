@@ -10,6 +10,7 @@ export interface ProductBadge {
 
 export interface Props {
   id: string | number;
+  slug?: string;
   name: string;
   price: number;
   originalPrice?: number;
@@ -54,16 +55,20 @@ const displayBadges = computed(() => {
   return list.slice(0, 2);
 });
 
+const resolvedUrl = computed(() => {
+  return props.productUrl || `/productos/${props.slug || props.id}`;
+});
+
 function onCtaClick(event: MouseEvent) {
   event.preventDefault();
-  emit('action', props.id);
+  emit('action', props.slug || props.id);
 }
 </script>
 
 <template>
   <div class="group bg-white rounded-bilbola-md shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-bilbola-mint-light/60 flex flex-col font-bilbola">
     <!-- Image container with consistent aspect ratio -->
-    <a :href="productUrl || `/productos/${id}`" class="aspect-square relative overflow-hidden bg-bilbola-surface-neutral p-6 flex items-center justify-center block">
+    <a :href="resolvedUrl" class="aspect-square relative overflow-hidden bg-bilbola-surface-neutral p-6 flex items-center justify-center block">
       <!-- Badges overlay, positioned so they do not obstruct core visual elements -->
       <div class="absolute top-3 left-3 z-10 flex flex-col gap-1.5 items-start pointer-events-none">
         <BaseBadge
@@ -93,7 +98,7 @@ function onCtaClick(event: MouseEvent) {
     <!-- Content Area -->
     <div class="p-5 flex-grow flex flex-col justify-between gap-4">
       <div>
-        <a :href="productUrl || `/productos/${id}`" class="hover:text-bilbola-mint-depth transition-colors block">
+        <a :href="resolvedUrl" class="hover:text-bilbola-mint-depth transition-colors block">
           <h3 class="font-bold text-lg text-bilbola-text-primary line-clamp-2 leading-snug" :title="name">
             {{ name }}
           </h3>

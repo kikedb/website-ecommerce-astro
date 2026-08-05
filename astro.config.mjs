@@ -15,6 +15,18 @@ export default defineConfig({
   },
   integrations: [vue()],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: [
+        'vue',
+        'vue-sonner',
+        '@headlessui/vue',
+        'lucide-vue-next',
+        '@lucide/vue',
+        'swiper',
+        'swiper/vue',
+        'swiper/modules'
+      ]
+    }
   }
 });

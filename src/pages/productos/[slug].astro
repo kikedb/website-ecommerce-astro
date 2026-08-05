@@ -1,0 +1,115 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { fetchProductBySlug, getProductUrl } from '@/lib/api';
+import { getProductBySlug, MOCK_PRODUCTS } from '@/lib/mockCatalog';
+import BreadcrumbNav from '@/components/ui/BreadcrumbNav.vue';
+import ProductMediaGallery from '@/components/ecommerce/ProductMediaGallery.vue';
+import ProductDetailControls from '@/components/ecommerce/ProductDetailControls.vue';
+import ProductDetailTabs from '@/components/ecommerce/ProductDetailTabs.vue';
+import ProductCarouselSlider from '@/components/ecommerce/ProductCarouselSlider.vue';
+import ProductCard from '@/components/ecommerce/ProductCard.vue';
+import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
+
+const { slug } = Astro.params;
+
+// Intentar consultar vía API o fallback en catálogo mock
+const productData = await fetchProductBySlug(String(slug));
+const product = productData || getProductBySlug(String(slug));
+
+if (!product) {
+  // Manejo de 404 / producto no existente
+  return Astro.redirect('/productos?not_found=1');
+}
+
+// Configuración de migas de pan para navegación SEO
+const breadcrumbs = [
+  { label: 'Catálogo de Productos', url: '/productos' },
+  { label: product.categoryLabel || 'Producto', url: `/productos?cat=${product.category}` },
+  { label: product.name, current: true }
+];
+
+// Medios audiovisuales del producto para la galería con zoom
+const mediaList = product.media && product.media.length > 0
+  ? product.media
+  : [
+      { id: 'main-1', url: product.imageUrl, alt: `Vista frontal de ${product.name}` },
+      { id: 'main-2', url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', alt: 'Detalle de madera nativa y terminaciones' }
+    ];
+
+// Productos relacionados para promover cross-selling con respaldo para mostrar siempre una variedad de piezas en el carrusel
+const filtered = MOCK_PRODUCTS.filter(p => p.id !== product.id && (p.category === product.category || p.badges.some(b => b.type === 'bestseller' || b.type === 'customizable')));
+const relatedProducts = (filtered.length >= 4 ? filtered : MOCK_PRODUCTS.filter(p => p.id !== product.id)).slice(0, 6);
+---
+
+<Layout 
+  title={`${product.name} | Bílbola Deco Kids`}
+  description={product.description ? product.description.substring(0, 160) : `Compra ${product.name} en Bílbola. Diseño infantil, seguro, ecológico y fabricado a mano en Chile con despacho asegurado.`}
+  image={product.imageUrl}
+>
+  {/* Navegación por Migas de Pan (Breadcrumbs) */}
+  <div class="bg-bilbola-surface-page/90 border-b border-bilbola-gray-light/30 py-3.5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <BreadcrumbNav client:load items={breadcrumbs} />
+    </div>
+  </div>
+
+  {/* Sección Principal del Producto: Galería Izquierda + Controles Derecha */}
+  <section class="py-12 md:py-16 bg-gradient-to-b from-bilbola-surface-page via-white to-white font-bilbola overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        
+        {/* Columna Izquierda (Galería con Thumbnails y Zoom) - 7 columnas en desktop */}
+        <div class="lg:col-span-7 w-full lg:sticky lg:top-24">
+          <ProductMediaGallery client:load media={mediaList} productName={product.name} />
+        </div>
+
+        {/* Columna Derecha (Controles, Opciones, Precio y Envío) - 5 columnas en desktop */}
+        <div class="lg:col-span-5 w-full">
+          <ProductDetailControls client:load product={product} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Pestañas Inferiores: Especificaciones Técnicas, Cuidado y Reseñas de Familias */}
+  <ProductDetailTabs client:visible product={product} />
+
+  {/* Sección de Productos Relacionados y Cross-Selling */}
+  <section class="py-16 bg-bilbola-surface-page/50 border-t border-bilbola-gray-light/30">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+      <ProductCarouselSlider 
+        client:visible 
+        title="Completa la Habitación con Estas Creaciones ✨" 
+        subtitle="Piezas que combinan perfectamente en estilo y seguridad con tu elección"
+      >
+        {relatedProducts.map((rel: any) => (
+          <ProductCard
+            client:visible
+            id={rel.id}
+            slug={rel.slug}
+            name={rel.name}
+            price={rel.price}
+            originalPrice={rel.originalPrice}
+            imageUrl={rel.imageUrl}
+            inStock={rel.inStock !== false}
+            isCustomizable={rel.isCustomizable}
+            badges={rel.badges}
+            productUrl={getProductUrl(rel)}
+            ctaLabel="Ver detalles"
+          />
+        ))}
+      </ProductCarouselSlider>
+    </div>
+  </section>
+
+  {/* Banner de Taller Personalizado */}
+  <CtaBanner
+    title="¿Necesitas este modelo con medidas especiales?"
+    subtitle="En nuestro taller artesanal en Chile adaptamos dimensiones, colores y barandillas según la morfología y el espacio de tu hogar."
+    buttonText="Consultar por Proyecto a Medida"
+    buttonUrl="/contacto"
+    variant="mint"
+    iconName="ruler"
+    badge="Taller Artesanal a Medida"
+  />
+</Layout>

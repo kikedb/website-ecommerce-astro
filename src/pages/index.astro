@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { fetchProducts, getImageUrl } from '@/lib/api';
+import { fetchProducts, getImageUrl, getProductUrl } from '@/lib/api';
 import HeroSlider from '@/components/ecommerce/HeroSlider.vue';
 import CategoryGrid from '@/components/ecommerce/CategoryGrid.astro';
 import ProductCard from '@/components/ecommerce/ProductCard.vue';
@@ -16,6 +16,7 @@ const fetchedProducts = Array.isArray(productsResponse) ? productsResponse : (pr
 const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   {
     id: 101,
+    slug: 'cama-montessori-roble-natura-plaza-y-media',
     name: 'Cama Montessori Roble Natura - Plaza y Media',
     price: 189990,
     originalPrice: 219990,
@@ -26,6 +27,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 102,
+    slug: 'lampara-de-noche-nube-magica-led-calido',
     name: 'Lámpara de Noche Nube Mágica (LED Cálido)',
     price: 34990,
     image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80',
@@ -35,6 +37,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 103,
+    slug: 'set-textil-algodon-organico-300-hilos-safari',
     name: 'Set Textil Algodón Orgánico 300 Hilos - Safari',
     price: 49990,
     originalPrice: 59990,
@@ -45,6 +48,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 104,
+    slug: 'estante-librero-frontal-oso-polar-blanco-mate',
     name: 'Estante Librero Frontal Oso Polar - Blanco Mate',
     price: 64990,
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80',
@@ -53,6 +57,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 105,
+    slug: 'movil-colgante-estrellas-y-lunas-tejiendo-suenos',
     name: 'Móvil Colgante Estrellas & Lunas Tejiendo Sueños',
     price: 28990,
     image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=600&q=80',
@@ -62,6 +67,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 106,
+    slug: 'alfombra-de-juegos-acolchada-hipoalergenica',
     name: 'Alfombra de Juegos Acolchada Hipoalergénica',
     price: 42990,
     originalPrice: 52990,
@@ -71,6 +77,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 107,
+    slug: 'baul-organizador-juguetero-sobre-ruedas',
     name: 'Baúl Organizador Juguetero sobre Ruedas',
     price: 55990,
     image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80',
@@ -79,6 +86,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
   },
   {
     id: 108,
+    slug: 'espejo-montessori-seguro-irrompible-con-barra',
     name: 'Espejo Montessori Seguro Irrompible con Barra',
     price: 79990,
     image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80',
@@ -117,6 +125,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
           <ProductCard
             client:visible
             id={product.id}
+            slug={product.slug}
             name={product.name}
             price={product.price || 0}
             originalPrice={product.originalPrice || product.original_price}
@@ -124,7 +133,7 @@ const products = fetchedProducts.length >= 4 ? fetchedProducts : [
             inStock={product.inStock !== false && product.in_stock !== false}
             isCustomizable={product.isCustomizable || product.is_customizable}
             badges={product.badges || []}
-            productUrl={`/productos/${product.id}`}
+            productUrl={getProductUrl(product)}
             ctaLabel="Ver detalles"
           />
         ))}

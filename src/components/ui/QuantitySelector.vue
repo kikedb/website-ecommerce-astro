@@ -53,12 +53,12 @@ const sizeClasses = computed(() => {
 </script>
 
 <template>
-  <div class="inline-flex items-center rounded-bilbola-sm border border-bilbola-gray-light bg-white p-0.5 shadow-2xs font-bilbola">
+  <div class="inline-flex items-center justify-between rounded-bilbola-sm border border-bilbola-gray-light bg-white p-1 shadow-2xs font-bilbola">
     <button
       type="button"
       :disabled="disabled || isMin"
       :aria-label="'Disminuir cantidad'"
-      class="flex items-center justify-center rounded-sm bg-bilbola-surface-neutral hover:bg-bilbola-mint-light/40 text-bilbola-text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-bilbola-action-focus aspect-square"
+      class="flex items-center justify-center rounded-sm bg-bilbola-surface-neutral hover:bg-bilbola-mint-light/40 text-bilbola-text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-bilbola-action-focus aspect-square cursor-pointer shrink-0"
       :class="sizeClasses"
       @click="decrease"
     >
@@ -66,7 +66,7 @@ const sizeClasses = computed(() => {
     </button>
 
     <span
-      class="min-w-[3rem] text-center font-extrabold text-bilbola-text-primary select-none px-2"
+      class="flex-1 min-w-[3.5rem] text-center font-extrabold text-bilbola-text-primary select-none px-3"
       :class="{ 'opacity-50': disabled }"
     >
       {{ modelValue }}
@@ -76,7 +76,7 @@ const sizeClasses = computed(() => {
       type="button"
       :disabled="disabled || isMax"
       :aria-label="'Aumentar cantidad'"
-      class="flex items-center justify-center rounded-sm bg-bilbola-surface-neutral hover:bg-bilbola-mint-light/40 text-bilbola-text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-bilbola-action-focus aspect-square"
+      class="flex items-center justify-center rounded-sm bg-bilbola-surface-neutral hover:bg-bilbola-mint-light/40 text-bilbola-text-primary transition-colors disabled:opacity-30 disabled:cursor-not-allowed focus:outline-none focus:ring-1 focus:ring-bilbola-action-focus aspect-square cursor-pointer shrink-0"
       :class="sizeClasses"
       @click="increase"
     >
