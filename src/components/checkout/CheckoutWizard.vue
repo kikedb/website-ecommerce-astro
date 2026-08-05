@@ -4,15 +4,19 @@ import { useCart } from '@/composables/useCart';
 import CheckoutStepsTracker from '@/components/ecommerce/CheckoutStepsTracker.vue';
 import OrderSummaryCard from '@/components/checkout/OrderSummaryCard.vue';
 import Step1Cart from '@/components/checkout/steps/Step1Cart.vue';
+import Step2BuyerInfo, { type BuyerData } from '@/components/checkout/steps/Step2BuyerInfo.vue';
 
 const { items, totalPrice } = useCart();
 
 const currentStep = ref(1);
 
-// Discount management
+// Discount & Shipping state
 const discountCode = ref('');
 const discountPercentage = ref(0);
 const shippingCost = ref<number | null>(null);
+
+// Buyer & Order info state
+const buyerData = ref<BuyerData | null>(null);
 
 const discountAmount = computed(() => {
   if (!discountPercentage.value || totalPrice.value <= 0) return 0;
@@ -27,6 +31,10 @@ function handleApplyDiscount(code: string, percentage: number) {
 function handleRemoveDiscount() {
   discountCode.value = '';
   discountPercentage.value = 0;
+}
+
+function handleSaveBuyer(data: BuyerData) {
+  buyerData.value = data;
 }
 
 function goToStep(stepNumber: number) {
@@ -59,28 +67,36 @@ function goToStep(stepNumber: number) {
           @remove-discount="handleRemoveDiscount"
         />
 
-        <!-- PLACEHOLDER TEMPORAL PARA PASO 2 (Pronto a construirse) -->
+        <!-- PASO 2: Datos del Comprador & Nota Mágica -->
+        <Step2BuyerInfo
+          v-else-if="currentStep === 2"
+          @prev-step="goToStep(1)"
+          @next-step="goToStep(3)"
+          @save-buyer="handleSaveBuyer"
+        />
+
+        <!-- PLACEHOLDER TEMPORAL PARA PASO 3 (Pronto a construirse) -->
         <div 
-          v-else-if="currentStep === 2" 
+          v-else-if="currentStep === 3" 
           class="bg-white rounded-bilbola-lg border border-bilbola-gray-light/30 p-8 shadow-sm text-center space-y-6 animate-fadeIn"
         >
           <div class="w-14 h-14 rounded-full bg-bilbola-mint-light/40 mx-auto flex items-center justify-center text-bilbola-action-focus text-2xl font-black">
-            2
+            3
           </div>
           <h2 class="text-xl font-extrabold text-bilbola-text-primary">
-            Paso 2: Datos de Contacto y "Nota Mágica"
+            Paso 3: Selección de Despacho a Domicilio o Retiro en Bodega
           </h2>
           <p class="text-sm text-bilbola-text-secondary max-w-md mx-auto leading-relaxed">
-            Hemos verificado tu carrito correctamente. Este paso (formulario del comprador, dedicatoria de regalo e hidratación de cuenta) será implementado en el siguiente hito de nuestro plan de checkout.
+            Los datos de contacto y dedicatoria de regalo de <strong v-if="buyerData" class="text-bilbola-text-primary">{{ buyerData.firstName }}</strong> han sido guardados con éxito en memoria transaccional. Este paso 3 (selección de región/comuna, cálculo del flete y opción de retiro en punto $0) será implementado en el siguiente hito de nuestro plan de checkout.
           </p>
           
           <div class="pt-4 border-t border-bilbola-gray-light/30 flex justify-center gap-4">
             <button
               type="button"
               class="px-6 py-3 rounded-bilbola-sm bg-bilbola-surface-neutral text-bilbola-text-primary font-bold text-xs hover:bg-bilbola-gray-light/40 transition-colors"
-              @click="goToStep(1)"
+              @click="goToStep(2)"
             >
-              🡠 Volver al Paso 1 (Carrito)
+              🡠 Volver al Paso 2 (Datos del Comprador)
             </button>
           </div>
         </div>
