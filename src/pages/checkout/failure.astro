@@ -1,0 +1,67 @@
+---
+import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
+---
+
+<CheckoutLayout title="Transacción No Completada | Bílbola Deco Kids">
+    <div class="max-w-2xl mx-auto w-full py-10 px-4 font-bilbola animate-fadeIn text-center space-y-8">
+        
+        <!-- Icono Vectorial Empático (Sin emojis ni rojos violentos) -->
+        <div class="w-20 h-20 rounded-full bg-amber-50 border border-amber-400/60 mx-auto flex items-center justify-center text-amber-600 shadow-xs">
+            <svg class="w-11 h-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+        </div>
+
+        <div class="space-y-2 max-w-xl mx-auto">
+            <h1 class="text-2xl sm:text-3xl font-black text-bilbola-text-primary tracking-tight font-serif">
+                La transacción no pudo completarse en el banco
+            </h1>
+            <p class="text-xs sm:text-sm text-bilbola-text-secondary leading-relaxed font-semibold">
+                Es probable que la sesión en Webpay haya expirado, que el banco requiera autorización previa o que se haya interrumpido la conexión.
+            </p>
+        </div>
+
+        <!-- TARJETA DE TRANQUILIDAD FINANCIERA (Resguardo de bolsa sin cobro) -->
+        <div class="bg-amber-50/50 border border-amber-400/60 rounded-bilbola-lg p-6 sm:p-8 text-left shadow-2xs space-y-4">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-white border border-amber-300 flex items-center justify-center text-amber-700 shrink-0 shadow-2xs">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <div class="space-y-1 text-xs sm:text-sm text-amber-950">
+                    <h3 class="font-black uppercase tracking-wider text-amber-900 text-xs">
+                        Tranquilidad asegurada: Sin cobros en tu cuenta
+                    </h3>
+                    <p class="leading-relaxed text-amber-950/90">
+                        <strong>No hemos realizado ningún cargo a tu tarjeta bancaria ni cuenta</strong>. Además, tus selecciones y datos de despacho permanecen resguardados intactos en la memoria web para que puedas reintentar el pago en un clic sin volver a completar tus formularios.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACCIONES RÁPIDAS DE CONTINUIDAD (Sin emojis) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <a
+              href="/checkout"
+              class="w-full sm:w-auto px-8 py-4 bg-bilbola-action-primary hover:bg-bilbola-action-focus text-white text-xs sm:text-sm font-black rounded-bilbola-sm tracking-wide uppercase shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 group"
+            >
+              <svg class="w-4 h-4 group-hover:-rotate-45 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              <span>Reintentar el Pago en Flow Ahora</span>
+            </a>
+
+            <a
+              href="/contacto"
+              class="w-full sm:w-auto px-6 py-4 bg-white border border-bilbola-gray-light/80 text-bilbola-text-secondary hover:text-bilbola-text-primary text-xs font-extrabold rounded-bilbola-sm transition-all text-center flex items-center justify-center gap-2"
+            >
+              <svg class="w-4 h-4 text-bilbola-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <span>¿Necesitas asistencia? Contactar Soporte</span>
+            </a>
+        </div>
+
+    </div>
+</CheckoutLayout>

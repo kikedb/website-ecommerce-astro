@@ -1,0 +1,45 @@
+---
+import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
+---
+
+<CheckoutLayout title="Pago en Proceso | Bílbola Deco Kids">
+    <div class="max-w-xl mx-auto w-full py-14 px-4 font-bilbola animate-fadeIn text-center space-y-7">
+        
+        <!-- Icono Vectorial de Reloj Limpio y Minimalista -->
+        <div class="w-16 h-16 rounded-full bg-bilbola-surface-neutral border border-bilbola-gray-light/80 mx-auto flex items-center justify-center text-amber-600 shadow-2xs">
+            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+
+        <div class="space-y-2">
+            <h1 class="text-2xl font-black text-bilbola-text-primary tracking-tight font-serif">
+                Esperando la confirmación de tu banco
+            </h1>
+            <p class="text-xs sm:text-sm text-bilbola-text-secondary leading-relaxed font-semibold">
+                Tu solicitud mediante transferencia o canal diferido está en procesamiento bancario.
+            </p>
+        </div>
+
+        <!-- Tarjeta Minimalista Informativa -->
+        <div class="bg-white border border-bilbola-gray-light/60 rounded-bilbola-md p-6 text-center shadow-2xs space-y-3 max-w-lg mx-auto">
+            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                Hemos reservado tu pedido en nuestra bodega. Algunas verificaciones bancarias toman breves minutos; apenas recibamos la autorización automática, enviaremos tu boleta y comprobante por correo electrónico.
+            </p>
+        </div>
+
+        <!-- Acción Principal Simplificada -->
+        <div class="pt-2">
+            <a
+              href="/"
+              class="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-bilbola-surface-neutral border border-bilbola-gray-light/80 hover:border-bilbola-action-focus hover:bg-white text-bilbola-text-primary font-black text-xs uppercase tracking-wider rounded-bilbola-sm transition-all shadow-2xs"
+            >
+              <svg class="w-4 h-4 text-bilbola-action-focus" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              <span>Volver a la Portada Principal</span>
+            </a>
+        </div>
+
+    </div>
+</CheckoutLayout>

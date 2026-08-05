@@ -1,0 +1,365 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Directorio Maestro de Vistas & QA | Bílbola Deco Kids">
+    <main class="min-h-screen bg-bilbola-surface-neutral/60 font-bilbola py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto space-y-12 animate-fadeIn">
+            
+            <!-- ENCABEZADO Y HERO DEL DIRECTORIO DE VISTAS -->
+            <header class="bg-white rounded-bilbola-lg border border-bilbola-gray-light/50 p-8 sm:p-10 shadow-md relative overflow-hidden">
+                <!-- Efecto de brillo de fondo -->
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-bilbola-mint-light/30 rounded-full blur-3xl pointer-events-none" />
+                <div class="absolute right-10 top-6 hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-bilbola-mint-light/60 border border-bilbola-action-focus text-bilbola-action-focus text-xs font-black uppercase tracking-wider">
+                    <span>⚡ Entorno Astro 7 &amp; Vue 3</span>
+                </div>
+
+                <div class="space-y-3 relative z-10 max-w-2xl">
+                    <span class="text-xs font-black text-bilbola-action-focus uppercase tracking-widest block">
+                        Mapa del Sitio &amp; Auditoría E-Commerce
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl font-black text-bilbola-text-primary tracking-tight leading-tight">
+                        Directorio de Vistas &amp; Pantallas de Prueba
+                    </h1>
+                    <p class="text-sm text-bilbola-text-secondary leading-relaxed font-semibold">
+                        Navega e inspecciona todas las páginas públicas del Storefront, el sistema de diseño del Brandbook y el flujo completo del nuevo Checkout (Wizard de 4 pasos y simulador de pasarela Flow).
+                    </p>
+                </div>
+
+                <!-- Barra de Estadísticas Rápida -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-bilbola-gray-light/30 text-xs">
+                    <div class="p-3.5 rounded-bilbola-sm bg-bilbola-surface-neutral border border-bilbola-gray-light/40">
+                        <span class="text-[11px] text-bilbola-text-secondary font-bold uppercase block">Vistas Totales</span>
+                        <strong class="text-xl font-black text-bilbola-text-primary">11 Páginas</strong>
+                    </div>
+                    <div class="p-3.5 rounded-bilbola-sm bg-bilbola-surface-neutral border border-bilbola-gray-light/40">
+                        <span class="text-[11px] text-bilbola-text-secondary font-bold uppercase block">Flujo Checkout</span>
+                        <strong class="text-xl font-black text-bilbola-action-focus">5 Pantallas</strong>
+                    </div>
+                    <div class="p-3.5 rounded-bilbola-sm bg-bilbola-surface-neutral border border-bilbola-gray-light/40">
+                        <span class="text-[11px] text-bilbola-text-secondary font-bold uppercase block">Arquitectura</span>
+                        <strong class="text-xl font-black text-green-700">Islas Vue 3</strong>
+                    </div>
+                    <div class="p-3.5 rounded-bilbola-sm bg-bilbola-surface-neutral border border-bilbola-gray-light/40">
+                        <span class="text-[11px] text-bilbola-text-secondary font-bold uppercase block">Estándar UI</span>
+                        <strong class="text-xl font-black text-bilbola-support-pink">WCAG AA</strong>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SECCIÓN 1: ECOSISTEMA DE CHECKOUT & PASARELA DE PAGO FLOW -->
+            <section class="space-y-6">
+                <div class="flex items-center justify-between border-b border-bilbola-gray-light/40 pb-3">
+                    <h2 class="text-xl sm:text-2xl font-black text-bilbola-text-primary tracking-tight flex items-center gap-2.5">
+                        <span class="p-2 rounded-lg bg-bilbola-mint-light/50 text-bilbola-action-focus">🛍️</span>
+                        <span>Ecosistema de Checkout &amp; Pasarela Flow (Nuevo)</span>
+                    </h2>
+                    <span class="px-2.5 py-1 bg-green-100 text-green-800 font-black text-[11px] rounded-sm uppercase tracking-wider">
+                        100% Implementado
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Tarjeta: Wizard de Checkout -->
+                    <div class="bg-white rounded-bilbola-md p-6 border-2 border-bilbola-action-focus/30 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/checkout</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-blue-50 text-blue-700 font-extrabold text-[10px] uppercase tracking-wide">Wizard 4 Pasos</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Wizard de Compra Principal
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Flujo reactivo con Carrito (Paso 1), Datos del Comprador &amp; Nota Mágica de Regalo (Paso 2), Despacho a Domicilio o Bodega $0 (Paso 3) y Auditoría Final (Paso 4).
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Estado: 🟢 Operativo</span>
+                            <a href="/checkout" class="px-4 py-2 bg-bilbola-action-primary hover:bg-bilbola-action-focus text-white font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Abrir Vista</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Simulador Flow QA -->
+                    <div class="bg-slate-900 rounded-bilbola-md p-6 border-2 border-slate-700 hover:border-blue-400 transition-all shadow-md hover:shadow-xl flex flex-col justify-between group text-white">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-slate-800 px-2 py-1 rounded-xs text-slate-300">/checkout/fake-gateway</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wide animate-pulse">🧪 Entorno QA</span>
+                            </div>
+                            <h3 class="text-lg font-black text-blue-400 group-hover:text-blue-300 transition-colors">
+                                Simulador Pasarela Flow
+                            </h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Vista emuladora de Transbank &amp; Flow que permite probar localmente en 1 clic los 3 resultados transaccionales bancarios (Aprobado 🟢, Rechazado 🔴 o Pendiente 🟠).
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-slate-800 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-slate-400">Mock Webhook Dev</span>
+                            <a href="/checkout/fake-gateway" class="px-4 py-2 bg-blue-500 hover:bg-blue-400 text-slate-950 font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-sm">
+                                <span>Simular Pago</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Pago Exitoso -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-green-500 transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/checkout/success</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-green-100 text-green-800 font-extrabold text-[10px] uppercase">Retorno Éxito</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-green-600 transition-colors">
+                                🎉 Confirmación y Boleta
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Celebración tras pago aprobado con número mágico de orden, botón para copiar al portapapeles y limpieza automática de carrito y memoria.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Estado: 🟢 Operativo</span>
+                            <a href="/checkout/success" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-green-600 hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ver Celebración</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Pago Fallido / Rechazo -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-rose-400 transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/checkout/failure</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-rose-100 text-rose-800 font-extrabold text-[10px] uppercase">Retorno Fallo</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-rose-600 transition-colors">
+                                🥺 Rechazo Bancario Empático
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Pantalla amigably que le asegura al cliente que no se le ha cobrado nada y que su bolsa de peluches sigue intacta, ofreciendo reintento en 1 clic.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Estado: 🟢 Operativo</span>
+                            <a href="/checkout/failure" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-rose-600 hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ver Reintento</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta: Pago Pendiente -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-amber-400 transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/checkout/pending</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-amber-100 text-amber-800 font-extrabold text-[10px] uppercase">Retorno Pendiente</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-amber-600 transition-colors">
+                                ⏳ Transferencia en Demora
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Vista informativa para pagos diferidos o transferencias bancarias en Flow donde se avisa que el stock ha quedado reservado en bodega.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Estado: 🟢 Operativo</span>
+                            <a href="/checkout/pending" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-amber-500 hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ver Pendiente</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: STOREFRONT Y CATÁLOGO MÁGICO BÍLBOLA -->
+            <section class="space-y-6">
+                <div class="flex items-center justify-between border-b border-bilbola-gray-light/40 pb-3">
+                    <h2 class="text-xl sm:text-2xl font-black text-bilbola-text-primary tracking-tight flex items-center gap-2.5">
+                        <span class="p-2 rounded-lg bg-bilbola-mint-light/50 text-bilbola-action-focus">🧸</span>
+                        <span>Storefront &amp; Páginas Públicas</span>
+                    </h2>
+                    <span class="text-xs font-bold text-bilbola-text-secondary">
+                        Navegación del E-Commerce
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Portada -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/ (index)</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-bilbola-mint-light text-bilbola-action-focus font-extrabold text-[10px] uppercase">Home</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Portada Principal (Home)
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Página de bienvenida del Storefront Bílbola con banner destacado de adopción de peluches, categorías estrella y promociones del mes.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Astro SSR / SSG</span>
+                            <a href="/" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-bilbola-action-primary hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ir a Portada</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Catálogo General -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/productos</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-purple-50 text-purple-700 font-extrabold text-[10px] uppercase">Catálogo</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Catálogo de Productos
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Vitrina interactiva con sistema de filtrado de amigos y mobiliario infantil, buscador reactivo y botón directo para añadir a la bolsa mágica.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Nanostores Sync</span>
+                            <a href="/productos" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-bilbola-action-primary hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ver Catálogo</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ficha de Producto Muestra -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs truncate max-w-[170px] text-bilbola-text-secondary" title="/productos/osito-dormilon-margarita">/productos/[slug]</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-purple-50 text-purple-700 font-extrabold text-[10px] uppercase">Ficha</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Ficha Individual de Producto
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Muestra de la página de detalle de un peluche (Osito Dormilón Margarita) con fotos de alta definición, selector de cantidad y ficha de materiales seguros.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Ruta Dinámica</span>
+                            <a href="/productos/osito-dormilon-margarita" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-bilbola-action-primary hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ver Muestra</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quiénes Somos -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/quienes-somos</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-blue-50 text-blue-700 font-extrabold text-[10px] uppercase">Nosotros</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Quiénes Somos &amp; Taller
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Nuestra filosofía, la magia detrás del diseño de mobiliario Montessori y el Centro de Adopción de peluches en Providencia.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Estático SSG</span>
+                            <a href="/quienes-somos" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-bilbola-action-primary hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Conócenos</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contacto & Soporte -->
+                    <div class="bg-white rounded-bilbola-md p-6 border border-bilbola-gray-light/50 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-bilbola-surface-neutral px-2 py-1 rounded-xs text-bilbola-text-secondary">/contacto</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-emerald-50 text-emerald-700 font-extrabold text-[10px] uppercase">Soporte</span>
+                            </div>
+                            <h3 class="text-lg font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Contacto y Mesa de Ayuda
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Formulario de atención telefónica y digital para resolver inquietudes de envíos, garantías o compras mayoristas institucionales.
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-gray-light/20 flex items-center justify-between">
+                            <span class="text-[11px] font-bold text-bilbola-text-secondary">Estático SSG</span>
+                            <a href="/contacto" class="px-4 py-2 bg-bilbola-surface-neutral hover:bg-bilbola-action-primary hover:text-white text-bilbola-text-primary font-black text-xs rounded-sm transition-all flex items-center gap-1 shadow-2xs">
+                                <span>Ir a Contacto</span>
+                                <span>➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: BRANDBOOK & SISTEMA DE DISEÑO -->
+            <section class="space-y-6">
+                <div class="flex items-center justify-between border-b border-bilbola-gray-light/40 pb-3">
+                    <h2 class="text-xl sm:text-2xl font-black text-bilbola-text-primary tracking-tight flex items-center gap-2.5">
+                        <span class="p-2 rounded-lg bg-bilbola-mint-light/50 text-bilbola-action-focus">🎨</span>
+                        <span>Brandbook &amp; Tokens de Diseño Oficiales</span>
+                    </h2>
+                    <span class="text-xs font-bold text-bilbola-text-secondary">
+                        Fuente de Verdad del Estilo
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <div class="bg-gradient-to-br from-bilbola-surface-warm via-white to-bilbola-mint-light/20 rounded-bilbola-md p-6 border-2 border-bilbola-support-pink/60 hover:border-bilbola-action-focus transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-2">
+                                <span class="text-[11px] font-mono font-bold bg-white px-2.5 py-1 rounded-xs text-bilbola-text-primary border border-bilbola-support-pink/40 shadow-2xs">/sistema-diseno</span>
+                                <span class="px-2 py-0.5 rounded-sm bg-bilbola-support-pink text-white font-black text-[10px] uppercase tracking-wide">Brandbook</span>
+                            </div>
+                            <h3 class="text-xl font-black text-bilbola-text-primary group-hover:text-bilbola-action-focus transition-colors">
+                                Catálogo del Sistema de Diseño Bílbola
+                            </h3>
+                            <p class="text-xs text-bilbola-text-secondary leading-relaxed">
+                                Vista interactiva para auditar todos los componentes UI de la marca (botones, inputs monetarios, alertas semánticas de colores primarios y escalas de tipografía Source Serif e Inter).
+                            </p>
+                        </div>
+                        <div class="pt-5 mt-4 border-t border-bilbola-support-pink/30 flex items-center justify-between">
+                            <span class="text-[11px] font-extrabold text-bilbola-support-pink">✨ Cero colores hardcodeados</span>
+                            <a href="/sistema-diseno" class="px-5 py-2.5 bg-bilbola-action-primary hover:bg-bilbola-action-focus text-white font-black text-xs rounded-sm transition-all flex items-center gap-1.5 shadow-md">
+                                <span>Inspeccionar Tokens</span>
+                                <span class="group-hover:translate-x-0.5 transition-transform">➔</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- FOOTER DE AUDITORÍA RÁPIDA -->
+            <footer class="text-center pt-8 border-t border-bilbola-gray-light/40 text-xs text-bilbola-text-secondary space-y-2">
+                <p>
+                    ⚡ Directorio de Vistas generado para QA, desarrolladores y agentes de Advanced Agentic Coding.
+                </p>
+                <p class="font-bold text-bilbola-text-primary">
+                    Bílbola Deco Kids Spa &copy; 2026 — Todos los derechos reservados al sistema E-Commerce Marketplace.
+                </p>
+            </footer>
+
+        </div>
+    </main>
+</Layout>
