@@ -61,7 +61,6 @@ const selectorValue = ref({
 const touchedAddress = ref(false);
 const isSubmitted = ref(false);
 
-// Calculate real final cost based on Free Shipping promo (Free in RM above $49,990)
 const calculatedShipping = computed(() => {
   if (form.type === 'pickup') {
     return { cost: 0, isFree: true };
@@ -74,7 +73,6 @@ const calculatedShipping = computed(() => {
   return { cost: form.estimatedCost, isFree: false };
 });
 
-// Update finalCost and notify wizard whenever calculation changes
 watch(
   [() => form.type, () => form.region, () => form.estimatedCost, () => totalPrice.value],
   () => {
@@ -125,7 +123,6 @@ watch(
   }
 );
 
-// Validation
 const addressError = computed(() => {
   if (form.type === 'pickup') return '';
   if (!form.address.trim() || form.address.trim().length < 4) {
@@ -162,7 +159,7 @@ function handleNext() {
           <span>3. Selección de Modalidad de Entrega</span>
         </h2>
         <p class="text-xs text-bilbola-text-secondary mt-0.5">
-          Elige si deseas recibir tu pedido en casa por empresa de currier encriptado o retirar en nuestro taller en Providencia.
+          Elige si deseas recibir tu pedido en casa por empresa de transporte o retirar en nuestro taller en Providencia.
         </p>
       </div>
 
@@ -210,7 +207,6 @@ function handleNext() {
             Empresa de transportes especializada con seguro ante pérdidas o daños durante la ruta.
           </p>
 
-          <!-- Sello Recomendada / Promo -->
           <div v-if="form.type === 'delivery'" class="mt-2 text-right">
             <span class="inline-block bg-bilbola-action-focus text-white text-[10px] font-black uppercase px-2 py-0.5 rounded-sm shadow-2xs">
               Recomendado
@@ -271,7 +267,6 @@ function handleNext() {
       <!-- SECCIÓN A: FORMULARIO Y CALCULADOR PARA DESPACHO A DOMICILIO -->
       <div v-if="form.type === 'delivery'" class="space-y-6 pt-5 border-t border-bilbola-gray-light/30 animate-fadeIn">
         
-        <!-- Reutilización del selector geográfico del sistema de diseño (ChileShippingSelector) -->
         <div class="space-y-2">
           <label class="block text-xs font-black text-bilbola-text-primary uppercase tracking-wider">
             1. Ubicación y Cálculo de Tarifa
@@ -283,9 +278,9 @@ function handleNext() {
         </div>
 
         <!-- Banner de Envío GRATIS en Región Metropolitana sobre $49.990 -->
-        <div v-if="form.isFreeShipping && form.region === 'rm'" class="p-3.5 rounded-bilbola-sm bg-green-50 border border-green-500 text-green-800 text-xs font-bold flex items-center gap-2.5 shadow-2xs animate-pulse">
+        <div v-if="form.isFreeShipping && form.region === 'rm'" class="p-3.5 rounded-bilbola-sm bg-green-50 border border-green-500 text-green-800 text-xs font-bold flex items-center gap-2.5 shadow-2xs">
           <Sparkles class="w-5 h-5 text-green-600 shrink-0" />
-          <span>¡Felicidades! Tu bolsa mágica supera los $49.990 en Región Metropolitana, tienes <strong>Envío a Domicilio 100% GRATIS</strong>.</span>
+          <span>¡Felicidades! Tu bolsa supera los $49.990 en Región Metropolitana, tienes <strong>Envío a Domicilio 100% GRATIS</strong>.</span>
         </div>
 
         <!-- Formulario de Dirección Postal -->
@@ -296,7 +291,6 @@ function handleNext() {
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
             
-            <!-- Calle y Número -->
             <div class="sm:col-span-2 space-y-1.5">
               <label for="ship-address" class="block text-[11px] font-black text-bilbola-text-primary uppercase">
                 Calle y Número <span class="text-red-500">*</span>
@@ -328,7 +322,6 @@ function handleNext() {
               </p>
             </div>
 
-            <!-- Dpto / Oficina / Block (Opcional) -->
             <div class="space-y-1.5">
               <label for="ship-apt" class="block text-[11px] font-black text-bilbola-text-primary uppercase">
                 Depto / Oficina <span class="text-bilbola-text-secondary font-normal">(Opcional)</span>
@@ -349,7 +342,6 @@ function handleNext() {
 
           </div>
 
-          <!-- Notas e Instrucciones para el Repartidor -->
           <div class="space-y-1.5">
             <label for="ship-instructions" class="block text-[11px] font-black text-bilbola-text-primary uppercase">
               Instrucciones para el repartidor <span class="text-bilbola-text-secondary font-normal">(Opcional)</span>
@@ -428,7 +420,7 @@ function handleNext() {
         class="w-full sm:w-auto px-8 py-4 bg-bilbola-action-primary text-white text-sm font-black rounded-bilbola-sm tracking-wide uppercase shadow-lg hover:bg-bilbola-action-focus hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group order-1 sm:order-2"
         @click="handleNext"
       >
-        <span>Revisar y Pagar en Flow</span>
+        <span>Revisar y Pagar</span>
         <ArrowRight class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1.5" />
       </button>
     </div>

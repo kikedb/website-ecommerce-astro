@@ -7,7 +7,7 @@ import ProductCard from '@/components/ecommerce/ProductCard.vue';
 import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
 import TestimonialSlider from '@/components/ecommerce/TestimonialSlider.vue';
 import PartnersGrid from '@/components/ecommerce/PartnersGrid.astro';
-import { Star } from '@lucide/vue';
+import { Star } from 'lucide-vue-next';
 
 const productsResponse = await fetchProducts({ per_page: 8 });
 const fetchedProducts = Array.isArray(productsResponse) ? productsResponse : (productsResponse?.data || []);

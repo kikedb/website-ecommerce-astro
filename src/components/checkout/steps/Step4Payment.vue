@@ -1,24 +1,20 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
 import { useCart } from '@/composables/useCart';
-import FlowPayButton from '@/components/checkout/FlowPayButton.vue';
-import PriceDisplay from '@/components/ecommerce/PriceDisplay.vue';
+import PaymentGatewayButton from '@/components/checkout/PaymentGatewayButton.vue';
 import { 
-  CheckCircle2, 
   Edit2, 
   Lock, 
   ShieldCheck, 
   CreditCard, 
   Smartphone, 
   Landmark, 
-  Sparkles, 
   ArrowLeft, 
   AlertTriangle,
   User,
   Truck,
   ShoppingBag,
-  Gift,
-  Info
+  Gift
 } from 'lucide-vue-next';
 import type { BuyerData } from './Step2BuyerInfo.vue';
 import type { ShippingData } from './Step3Shipping.vue';
@@ -30,14 +26,13 @@ export interface Emits {
 
 const emit = defineEmits<Emits>();
 
-const { items, totalItems, totalPrice } = useCart();
+const { totalItems, totalPrice } = useCart();
 
 const buyer = ref<BuyerData | null>(null);
 const shipping = ref<ShippingData | null>(null);
-const paymentMethod = ref('flow_webpay');
+const paymentMethod = ref('gateway_card');
 
 onMounted(() => {
-  // Hidratar desde sessionStorage si está disponible
   const savedBuyer = sessionStorage.getItem('bilbola_checkout_buyer');
   if (savedBuyer) {
     try { buyer.value = JSON.parse(savedBuyer); } catch (e) {}
@@ -72,14 +67,14 @@ function jumpToStep(step: number) {
           <span>4. Revisión Final y Conexión de Pago</span>
         </h2>
         <p class="text-xs text-bilbola-text-secondary mt-0.5">
-          Verifica con tranquilidad los datos de tu pedido antes de proceder a la pasarela bancaria oficial de Flow.
+          Verifica con tranquilidad los datos de tu pedido antes de proceder a la pasarela bancaria segura en línea.
         </p>
       </div>
 
-      <!-- BLOQUE 1: RESUMEN DE CONSUMO (Solo Lectura con Enlaces Rápidos de Edición) -->
+      <!-- BLOQUE 1: RESUMEN DE CONSUMO -->
       <div class="space-y-4">
         <h3 class="text-xs font-black text-bilbola-text-primary uppercase tracking-wider block">
-          📋 Resumen de tu Pedido Mágico
+          📋 Resumen de tu Pedido
         </h3>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -108,7 +103,6 @@ function jumpToStep(step: number) {
                 <p class="text-bilbola-text-secondary truncate">{{ buyer.email }}</p>
                 <p class="text-bilbola-text-secondary font-semibold">{{ buyer.phone }}</p>
                 
-                <!-- Sello de regalo -->
                 <div v-if="buyer.isGift" class="mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-bilbola-surface-warm border border-bilbola-support-pink text-bilbola-support-pink font-bold text-[10px]">
                   <Gift class="w-3 h-3" />
                   <span>Incluye Tarjeta de Regalo</span>
@@ -161,7 +155,7 @@ function jumpToStep(step: number) {
             </div>
           </div>
 
-          <!-- Tarjeta 3: Detalle Rápido de la Bolsa -->
+          <!-- Tarjeta 3: Detalle de la Bolsa -->
           <div class="p-4 rounded-bilbola-md bg-bilbola-surface-neutral/60 border border-bilbola-gray-light/40 flex flex-col justify-between gap-3 shadow-2xs">
             <div class="space-y-1.5 text-xs">
               <div class="flex items-center justify-between border-b border-bilbola-gray-light/30 pb-2">
@@ -201,40 +195,40 @@ function jumpToStep(step: number) {
         </div>
       </div>
 
-      <!-- BLOQUE 2: SELECCIÓN DEL MEDIO EN PASARELA FLOW -->
+      <!-- BLOQUE 2: SELECCIÓN DEL MEDIO DE PAGO EN LÍNEA -->
       <div class="space-y-5 pt-6 border-t border-bilbola-gray-light/30">
         <div>
           <h3 class="text-xs font-black text-bilbola-text-primary uppercase tracking-wider block">
-            💳 Elige tu Medio de Pago Seguro en Flow
+            💳 Elige tu Medio de Pago Seguro en Línea
           </h3>
           <p class="text-xs text-bilbola-text-secondary mt-0.5">
-            Selecciona el canal bancario con el que prefieres autorizar el cobro en línea.
+            Selecciona el canal con el que prefieres autorizar el cobro electrónico.
           </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           
-          <!-- Webpay Plus (Tarjetas) -->
+          <!-- Tarjetas Bancarias -->
           <label
             :class="[
               'p-4 rounded-bilbola-md border-2 cursor-pointer transition-all flex flex-col justify-between group relative overflow-hidden',
-              paymentMethod === 'flow_webpay'
+              paymentMethod === 'gateway_card'
                 ? 'border-bilbola-action-focus bg-bilbola-mint-light/20 shadow-sm'
                 : 'border-bilbola-gray-light/50 bg-white hover:border-bilbola-gray-light'
             ]"
-            @click="paymentMethod = 'flow_webpay'"
+            @click="paymentMethod = 'gateway_card'"
           >
             <div class="flex justify-between items-start gap-2">
               <div class="p-2 rounded-full bg-blue-50 text-blue-700 w-9 h-9 flex items-center justify-center">
                 <CreditCard class="w-5 h-5 stroke-[2.2]" />
               </div>
-              <span v-if="paymentMethod === 'flow_webpay'" class="text-[10px] bg-bilbola-action-focus text-white px-2 py-0.5 rounded-sm font-black uppercase">
+              <span v-if="paymentMethod === 'gateway_card'" class="text-[10px] bg-bilbola-action-focus text-white px-2 py-0.5 rounded-sm font-black uppercase">
                 Seleccionada
               </span>
             </div>
             <div class="mt-3">
-              <h4 class="text-xs font-extrabold text-bilbola-text-primary">Webpay Plus / Tarjetas</h4>
-              <p class="text-[11px] text-bilbola-text-secondary mt-0.5">Crédito (hasta 6 cuotas) o Redcompra / Débito.</p>
+              <h4 class="text-xs font-extrabold text-bilbola-text-primary">Tarjetas Bancarias</h4>
+              <p class="text-[11px] text-bilbola-text-secondary mt-0.5">Crédito (hasta 6 cuotas) o Tarjetas de Débito / Redcompra.</p>
             </div>
           </label>
 
@@ -242,23 +236,23 @@ function jumpToStep(step: number) {
           <label
             :class="[
               'p-4 rounded-bilbola-md border-2 cursor-pointer transition-all flex flex-col justify-between group relative overflow-hidden',
-              paymentMethod === 'flow_wallets'
+              paymentMethod === 'gateway_wallet'
                 ? 'border-bilbola-action-focus bg-bilbola-mint-light/20 shadow-sm'
                 : 'border-bilbola-gray-light/50 bg-white hover:border-bilbola-gray-light'
             ]"
-            @click="paymentMethod = 'flow_wallets'"
+            @click="paymentMethod = 'gateway_wallet'"
           >
             <div class="flex justify-between items-start gap-2">
               <div class="p-2 rounded-full bg-purple-50 text-purple-700 w-9 h-9 flex items-center justify-center">
                 <Smartphone class="w-5 h-5 stroke-[2.2]" />
               </div>
-              <span v-if="paymentMethod === 'flow_wallets'" class="text-[10px] bg-bilbola-action-focus text-white px-2 py-0.5 rounded-sm font-black uppercase">
+              <span v-if="paymentMethod === 'gateway_wallet'" class="text-[10px] bg-bilbola-action-focus text-white px-2 py-0.5 rounded-sm font-black uppercase">
                 Seleccionada
               </span>
             </div>
             <div class="mt-3">
-              <h4 class="text-xs font-extrabold text-bilbola-text-primary">Mach &amp; Billeteras</h4>
-              <p class="text-[11px] text-bilbola-text-secondary mt-0.5">Pago instantáneo desde tu móvil (Mach, Khipu, Servipag).</p>
+              <h4 class="text-xs font-extrabold text-bilbola-text-primary">Billeteras Digitales</h4>
+              <p class="text-[11px] text-bilbola-text-secondary mt-0.5">Pago instantáneo mediante aplicaciones móviles financieras.</p>
             </div>
           </label>
 
@@ -266,33 +260,32 @@ function jumpToStep(step: number) {
           <label
             :class="[
               'p-4 rounded-bilbola-md border-2 cursor-pointer transition-all flex flex-col justify-between group relative overflow-hidden',
-              paymentMethod === 'flow_transfer'
+              paymentMethod === 'gateway_transfer'
                 ? 'border-bilbola-action-focus bg-bilbola-mint-light/20 shadow-sm'
                 : 'border-bilbola-gray-light/50 bg-white hover:border-bilbola-gray-light'
             ]"
-            @click="paymentMethod = 'flow_transfer'"
+            @click="paymentMethod = 'gateway_transfer'"
           >
             <div class="flex justify-between items-start gap-2">
               <div class="p-2 rounded-full bg-emerald-50 text-emerald-700 w-9 h-9 flex items-center justify-center">
                 <Landmark class="w-5 h-5 stroke-[2.2]" />
               </div>
-              <span v-if="paymentMethod === 'flow_transfer'" class="text-[10px] bg-bilbola-action-focus text-white px-2 py-0.5 rounded-sm font-black uppercase">
+              <span v-if="paymentMethod === 'gateway_transfer'" class="text-[10px] bg-bilbola-action-focus text-white px-2 py-0.5 rounded-sm font-black uppercase">
                 Seleccionada
               </span>
             </div>
             <div class="mt-3">
-              <h4 class="text-xs font-extrabold text-bilbola-text-primary">Transferencia en Línea</h4>
-              <p class="text-[11px] text-bilbola-text-secondary mt-0.5">Conectado a todos los bancos nacionales vía Flow.</p>
+              <h4 class="text-xs font-extrabold text-bilbola-text-primary">Transferencia Bancaria</h4>
+              <p class="text-[11px] text-bilbola-text-secondary mt-0.5">Conectado de forma encriptada con todos los bancos nacionales.</p>
             </div>
           </label>
 
         </div>
       </div>
 
-      <!-- BLOQUE 3: BANNER DE SEGURIDAD SSL 256-BIT & BOTÓN DE GATILLO -->
+      <!-- BLOQUE 3: BANNER DE SEGURIDAD & BOTÓN TRANSACCIONAL -->
       <div class="space-y-6 pt-6 border-t border-bilbola-gray-light/30">
         
-        <!-- Banner de resguardo Menta Mágica -->
         <div class="p-4 rounded-bilbola-md bg-bilbola-mint-light/40 border border-bilbola-mint-depth/60 flex items-start gap-3.5 shadow-xs">
           <div class="w-9 h-9 rounded-full bg-white text-bilbola-action-focus flex items-center justify-center shrink-0 shadow-2xs">
             <Lock class="w-5 h-5 stroke-[2.2]" />
@@ -303,13 +296,13 @@ function jumpToStep(step: number) {
               <ShieldCheck class="w-4 h-4 text-green-600 inline" />
             </h4>
             <p class="text-bilbola-text-secondary mt-0.5 leading-relaxed">
-              Estás conectándote al servidor encriptado de grado militar de <strong>Flow y Transbank</strong>. Bílbola nunca accede ni almacena jamás los números de tus tarjetas bancarias.
+              Estás conectándote a servidores de pasarela bancaria de grado militar. Bílbola nunca accede ni almacena jamás los números o contraseñas de tus tarjetas bancarias.
             </p>
           </div>
         </div>
 
-        <!-- Botón Gigante Transaccional -->
-        <FlowPayButton
+        <!-- Botón Transaccional Agnóstico -->
+        <PaymentGatewayButton
           :amount="finalTotalToPay"
           :buyer="buyer"
           :shipping="shipping"

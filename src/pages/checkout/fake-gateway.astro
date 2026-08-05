@@ -2,31 +2,31 @@
 import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
 ---
 
-<CheckoutLayout title="Simulador Pasarela de Pago Flow | QA Bílbola">
+<CheckoutLayout title="Simulador de Pasarela de Pagos | QA Bílbola">
     <div class="max-w-2xl mx-auto w-full py-8 px-4 font-bilbola animate-fadeIn">
         
         <!-- Tarjeta del Simulador Bancario -->
         <div class="bg-white rounded-bilbola-lg border-2 border-bilbola-gray-light/40 shadow-xl overflow-hidden">
             
-            <!-- Cabecera estilo Flow -->
+            <!-- Cabecera de Pasarela Agnóstica -->
             <div class="bg-slate-900 text-white p-6 flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-400 flex items-center justify-center font-black text-lg">
-                        F
+                        P
                     </div>
                     <div>
-                        <span class="text-sm font-black tracking-widest uppercase block text-blue-400">Flow Payment Gateway</span>
-                        <span class="text-xs text-slate-300">Conexión Bancaria Transbank &amp; Bancos</span>
+                        <span class="text-sm font-black tracking-widest uppercase block text-blue-400">Pasarela de Pagos Seguro</span>
+                        <span class="text-xs text-slate-300">Conexión Bancaria &amp; Procesamiento Encriptado</span>
                     </div>
                 </div>
                 <span class="px-2.5 py-1 rounded-full bg-amber-500/20 border border-amber-400 text-amber-300 text-[10px] font-black uppercase tracking-wider animate-pulse">
-                    🚧 Entorno DEV / QA Local
+                    🚧 Entorno DEV / QA
                 </span>
             </div>
 
             <div class="p-6 sm:p-8 space-y-7">
                 
-                <!-- Información de la transacción en curso -->
+                <!-- Información transaccional -->
                 <div class="bg-slate-50 p-5 rounded-bilbola-md border border-slate-200/80 space-y-3">
                     <h3 class="text-xs font-black uppercase text-slate-700 tracking-wide flex items-center gap-2">
                         <span>Detalle de la Orden Electrónica Bílbola:</span>
@@ -46,24 +46,23 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
                     <div class="pt-2 flex items-center justify-between text-xs text-slate-600 border-t border-slate-200/60 font-semibold">
                         <span>Comercio: <strong>Bílbola Deco Kids Spa</strong></span>
                         <span id="display-method" class="bg-white px-2 py-0.5 rounded-sm border border-slate-200 text-[11px] font-bold text-slate-700 uppercase">
-                            Webpay Plus
+                            Pago en Línea
                         </span>
                     </div>
                 </div>
 
                 <div class="text-center space-y-1">
                     <h2 class="text-base font-extrabold text-slate-800">
-                        ¿Qué resultado deseas simular en este entorno local?
+                        ¿Qué resultado deseas simular en este entorno de pruebas?
                     </h2>
                     <p class="text-xs text-slate-500 leading-relaxed max-w-md mx-auto">
-                        Al hacer clic en cualquiera de estas opciones, se enviará la firma de prueba webhooks y serás redirigido a las pantallas oficiales de conclusión del e-commerce.
+                        Al hacer clic en cualquiera de estas opciones, se enviará la señal de prueba y serás redirigido a las pantallas oficiales de conclusión del e-commerce.
                     </p>
                 </div>
 
-                <!-- LOS 3 GATILLADORES DE PRUEBA DE QA -->
+                <!-- LOS 3 GATILLADORES DE PRUEBA -->
                 <div class="space-y-3.5">
                     
-                    <!-- Botón 1: ÉXITO -->
                     <button
                       type="button"
                       id="btn-simulate-success"
@@ -76,7 +75,6 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
                       <span class="text-xs opacity-80 group-hover:translate-x-1 transition-transform">➔ /checkout/success</span>
                     </button>
 
-                    <!-- Botón 2: RECHAZO / FALLO -->
                     <button
                       type="button"
                       id="btn-simulate-failure"
@@ -84,12 +82,11 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
                     >
                       <span class="flex items-center gap-2.5">
                         <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">✖</span>
-                        <span>2. Simular Rechazo Bancario o Saldo Insuficiente</span>
+                        <span>2. Simular Rechazo Bancario o Cancelación</span>
                       </span>
                       <span class="text-xs opacity-80 group-hover:translate-x-1 transition-transform">➔ /checkout/failure</span>
                     </button>
 
-                    <!-- Botón 3: PENDIENTE / DEMORA -->
                     <button
                       type="button"
                       id="btn-simulate-pending"
@@ -97,7 +94,7 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
                     >
                       <span class="flex items-center gap-2.5">
                         <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">⏳</span>
-                        <span>3. Simular Transferencia Demorada o Pendiente</span>
+                        <span>3. Simular Transferencia o Proceso Pendiente</span>
                       </span>
                       <span class="text-xs opacity-80 group-hover:translate-x-1 transition-transform">➔ /checkout/pending</span>
                     </button>
@@ -119,13 +116,13 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
 
     </div>
 
-    <!-- SCRIPT DEL CLIENTE PARA GESTIONAR PARÁMETROS DE URL Y REDIRECCIONES -->
+    <!-- SCRIPT DEL CLIENTE PARA REDIRECCIONES DE QA -->
     <script>
       function initFakeGateway() {
         const params = new URLSearchParams(window.location.search);
         const orderId = params.get('order_id') || 'BIL-998877';
         const amount = params.get('amount') || '0';
-        const method = params.get('method') || 'flow_webpay';
+        const method = params.get('method') || 'gateway_card';
 
         const elOrder = document.getElementById('display-order-id');
         const elAmount = document.getElementById('display-amount');
@@ -133,7 +130,7 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
 
         if (elOrder) elOrder.textContent = orderId;
         if (elAmount) elAmount.textContent = `$${Number(amount).toLocaleString('es-CL')} CLP`;
-        if (elMethod) elMethod.textContent = method.replace('flow_', '').toUpperCase();
+        if (elMethod) elMethod.textContent = method.replace('gateway_', '').toUpperCase();
 
         const btnSuccess = document.getElementById('btn-simulate-success');
         const btnFailure = document.getElementById('btn-simulate-failure');
@@ -146,7 +143,7 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
         }
         if (btnFailure) {
           btnFailure.onclick = () => {
-            window.location.href = `/checkout/failure?order_id=${encodeURIComponent(orderId)}&status=rejected&reason=saldo_insuficiente`;
+            window.location.href = `/checkout/failure?order_id=${encodeURIComponent(orderId)}&status=rejected&reason=error`;
           };
         }
         if (btnPending) {
@@ -156,7 +153,6 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
         }
       }
 
-      // Ejecutar al cargar la página y con transiciones Astro
       initFakeGateway();
       document.addEventListener('astro:after-swap', initFakeGateway);
     </script>

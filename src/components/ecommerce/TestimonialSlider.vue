@@ -2,7 +2,7 @@
 import { shallowRef } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Sparkles } from '@lucide/vue';
+import { Sparkles } from 'lucide-vue-next';
 import ProductReviewCard, { type Props as ReviewProps } from '@/components/ecommerce/ProductReviewCard.vue';
 
 import 'swiper/css';
@@ -14,6 +14,8 @@ export interface TestimonialItem extends ReviewProps {
 }
 
 const modules = shallowRef([Navigation, Pagination, Autoplay]);
+const autoplayConfig = shallowRef({ delay: 5000, disableOnInteraction: false });
+const paginationConfig = shallowRef({ clickable: true, dynamicBullets: true });
 
 const testimonials = shallowRef<TestimonialItem[]>([
   {
@@ -94,13 +96,13 @@ const breakpoints = shallowRef({
         <Swiper
           :modules="modules"
           :loop="false"
-          :autoplay="{ delay: 5000, disableOnInteraction: false }"
-          :pagination="{ clickable: true, dynamicBullets: true }"
+          :autoplay="autoplayConfig"
+          :pagination="paginationConfig"
           :navigation="true"
           :breakpoints="breakpoints"
           class="testimonial-swiper !pb-14 pt-2"
         >
-          <SwiperSlide v-for="item in testimonials" :key="item.id" class="h-auto flex">
+          <SwiperSlide v-for="(item, index) in testimonials" :key="String(item.id)" :data-index="index" class="h-auto flex">
             <ProductReviewCard
               :author="item.author"
               :date="item.date"
@@ -121,6 +123,7 @@ const breakpoints = shallowRef({
 <style scoped>
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
+  --swiper-navigation-size: 16px !important;
   color: #1a4f4c;
   background: rgba(255, 255, 255, 0.95);
   width: 42px;
@@ -130,6 +133,9 @@ const breakpoints = shallowRef({
   top: 45%;
   border: 1px solid rgba(136, 196, 184, 0.5);
   transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 :deep(.swiper-button-next:hover),
 :deep(.swiper-button-prev:hover) {
@@ -137,10 +143,17 @@ const breakpoints = shallowRef({
   color: #ffffff;
   transform: scale(1.08);
 }
+:deep(.swiper-button-next svg),
+:deep(.swiper-button-prev svg) {
+  width: 16px !important;
+  height: 16px !important;
+  stroke-width: 2.5px;
+}
 :deep(.swiper-button-next::after),
 :deep(.swiper-button-prev::after) {
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 16px !important;
+  font-weight: 800;
+  line-height: 1;
 }
 :deep(.swiper-button-prev) {
   left: -4px;

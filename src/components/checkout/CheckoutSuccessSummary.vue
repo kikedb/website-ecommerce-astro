@@ -21,7 +21,6 @@ const isCopied = ref(false);
 const { clearCart } = useCart();
 
 onMounted(() => {
-  // 1. Obtener la última orden simulada en localStorage
   const saved = localStorage.getItem('bilbola_last_order');
   if (saved) {
     try {
@@ -30,7 +29,6 @@ onMounted(() => {
       console.error('Error parsing order data:', e);
     }
   } else {
-    // Orden de fallback para visualización de prueba
     orderData.value = {
       order_id: `BIL-${Math.floor(100000 + Math.random() * 900000)}`,
       amount: 49990,
@@ -44,7 +42,6 @@ onMounted(() => {
     };
   }
 
-  // 2. Limpieza de estado y carrito para reiniciar experiencia transaccional
   clearCart();
   sessionStorage.removeItem('bilbola_checkout_buyer');
   sessionStorage.removeItem('bilbola_checkout_shipping');
@@ -61,7 +58,7 @@ function copyOrderId() {
 <template>
   <div class="max-w-3xl mx-auto font-bilbola space-y-8 animate-fadeIn py-6 px-2">
     
-    <!-- CABECERA SERENA Y ELEGANTE DE CONFIRMACIÓN -->
+    <!-- CABECERA DE CONFIRMACIÓN -->
     <div class="text-center space-y-4 max-w-xl mx-auto">
       <div class="w-20 h-20 rounded-full bg-emerald-50 border border-green-500/40 mx-auto flex items-center justify-center text-green-600 shadow-xs">
         <CheckCircle2 class="w-11 h-11 stroke-[2.2]" />
@@ -79,10 +76,9 @@ function copyOrderId() {
       </div>
     </div>
 
-    <!-- FICHA DE VOUCHER DIGITAL DEPURADA (Estética limpia en verde esmeralda y blanco puro) -->
+    <!-- FICHA DE VOUCHER DIGITAL -->
     <div v-if="orderData" class="bg-white border border-green-500/30 rounded-bilbola-lg p-6 sm:p-8 shadow-sm space-y-7 relative overflow-hidden">
       
-      <!-- Barra superior de autenticidad -->
       <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-bilbola-gray-light/40 pb-5">
         <div>
           <span class="text-[10px] font-black text-bilbola-text-secondary uppercase tracking-widest block">
@@ -108,14 +104,13 @@ function copyOrderId() {
 
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-green-500/40 text-green-800 font-black text-xs uppercase tracking-wider shrink-0 shadow-2xs">
           <Check class="w-3.5 h-3.5 text-green-600 stroke-[3]" />
-          <span>Aprobado por Flow / Webpay</span>
+          <span>Aprobado en Pasarela de Pagos</span>
         </div>
       </div>
 
-      <!-- Grid de antecedentes: Comprador y Envío -->
+      <!-- Grid de antecedentes -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs bg-bilbola-surface-neutral/40 p-5 rounded-bilbola-md border border-bilbola-gray-light/30">
         
-        <!-- Comprador -->
         <div class="space-y-2">
           <div class="flex items-center gap-1.5 border-b border-bilbola-gray-light/40 pb-2">
             <User class="w-4 h-4 text-bilbola-action-focus" />
@@ -133,7 +128,6 @@ function copyOrderId() {
           </div>
         </div>
 
-        <!-- Entrega -->
         <div class="space-y-2">
           <div class="flex items-center gap-1.5 border-b border-bilbola-gray-light/40 pb-2">
             <Truck v-if="orderData.shipping?.type === 'delivery'" class="w-4 h-4 text-bilbola-action-focus" />
@@ -203,7 +197,7 @@ function copyOrderId() {
 
     </div>
 
-    <!-- BOTONES DE ACCIONES POSTERIORES (Sin emojis, limpios y accesibles) -->
+    <!-- BOTONES DE ACCIONES POSTERIORES -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
       <a
         href="/productos"

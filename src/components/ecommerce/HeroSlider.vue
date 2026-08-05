@@ -2,7 +2,7 @@
 import { shallowRef, type Component } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
-import { Sparkles, Moon, Palette, ArrowRight } from '@lucide/vue';
+import { Sparkles, Moon, Palette, ArrowRight } from 'lucide-vue-next';
 import BaseButton from '@/components/ui/BaseButton.vue';
 import BaseBadge from '@/components/ui/BaseBadge.vue';
 
@@ -25,6 +25,9 @@ export interface HeroSlide {
 }
 
 const modules = shallowRef([Navigation, Pagination, Autoplay, EffectFade]);
+const autoplayConfig = shallowRef({ delay: 6000, disableOnInteraction: false });
+const paginationConfig = shallowRef({ clickable: true, dynamicBullets: true });
+const fadeEffectConfig = shallowRef({ crossFade: true });
 
 const slides = shallowRef<HeroSlide[]>([
   {
@@ -73,14 +76,14 @@ const slides = shallowRef<HeroSlide[]>([
       :slides-per-view="1"
       :loop="true"
       :effect="'fade'"
-      :fade-effect="{ crossFade: true }"
+      :fade-effect="fadeEffectConfig"
       :speed="1000"
-      :autoplay="{ delay: 6000, disableOnInteraction: false }"
-      :pagination="{ clickable: true, dynamicBullets: true }"
+      :autoplay="autoplayConfig"
+      :pagination="paginationConfig"
       :navigation="true"
       class="hero-swiper min-h-[620px] md:min-h-[700px]"
     >
-      <SwiperSlide v-for="slide in slides" :key="slide.id" class="relative w-full h-full flex items-center">
+      <SwiperSlide v-for="(slide, index) in slides" :key="String(slide.id)" :data-index="index" class="relative w-full h-full flex items-center">
         <!-- Fondo e Imagen con Overlay Estético -->
         <div class="absolute inset-0 z-0 overflow-hidden">
           <img
@@ -137,8 +140,9 @@ const slides = shallowRef<HeroSlide[]>([
 /* Personalización de flechas y paginación al estilo Bílbola */
 :deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
+  --swiper-navigation-size: 20px !important;
   color: #1a4f4c;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -146,6 +150,9 @@ const slides = shallowRef<HeroSlide[]>([
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(136, 196, 184, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 :deep(.swiper-button-next:hover),
 :deep(.swiper-button-prev:hover) {
@@ -153,10 +160,17 @@ const slides = shallowRef<HeroSlide[]>([
   color: #ffffff;
   transform: scale(1.08);
 }
+:deep(.swiper-button-next svg),
+:deep(.swiper-button-prev svg) {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 2.5px;
+}
 :deep(.swiper-button-next::after),
 :deep(.swiper-button-prev::after) {
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 20px !important;
+  font-weight: 800;
+  line-height: 1;
 }
 :deep(.swiper-pagination-bullet) {
   width: 12px;

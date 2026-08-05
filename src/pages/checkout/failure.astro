@@ -5,7 +5,7 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
 <CheckoutLayout title="Transacción No Completada | Bílbola Deco Kids">
     <div class="max-w-2xl mx-auto w-full py-10 px-4 font-bilbola animate-fadeIn text-center space-y-8">
         
-        <!-- Icono Vectorial Empático (Sin emojis ni rojos violentos) -->
+        <!-- Icono Vectorial Empático -->
         <div class="w-20 h-20 rounded-full bg-amber-50 border border-amber-400/60 mx-auto flex items-center justify-center text-amber-600 shadow-xs">
             <svg class="w-11 h-11" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -17,11 +17,11 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
                 La transacción no pudo completarse en el banco
             </h1>
             <p class="text-xs sm:text-sm text-bilbola-text-secondary leading-relaxed font-semibold">
-                Es probable que la sesión en Webpay haya expirado, que el banco requiera autorización previa o que se haya interrumpido la conexión.
+                Es probable que la sesión en la pasarela de pagos haya expirado, que el banco requiera autorización previa o que se haya interrumpido la conexión.
             </p>
         </div>
 
-        <!-- TARJETA DE TRANQUILIDAD FINANCIERA (Resguardo de bolsa sin cobro) -->
+        <!-- TARJETA DE TRANQUILIDAD FINANCIERA -->
         <div class="bg-amber-50/50 border border-amber-400/60 rounded-bilbola-lg p-6 sm:p-8 text-left shadow-2xs space-y-4">
             <div class="flex items-start gap-4">
                 <div class="w-10 h-10 rounded-full bg-white border border-amber-300 flex items-center justify-center text-amber-700 shrink-0 shadow-2xs">
@@ -40,7 +40,7 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
             </div>
         </div>
 
-        <!-- ACCIONES RÁPIDAS DE CONTINUIDAD (Sin emojis) -->
+        <!-- ACCIONES RÁPIDAS DE CONTINUIDAD -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <a
               href="/checkout"
@@ -49,7 +49,7 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
               <svg class="w-4 h-4 group-hover:-rotate-45 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
-              <span>Reintentar el Pago en Flow Ahora</span>
+              <span>Reintentar el Pago Ahora</span>
             </a>
 
             <a

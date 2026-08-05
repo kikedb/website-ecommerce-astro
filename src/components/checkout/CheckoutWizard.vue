@@ -91,7 +91,7 @@ function goToStep(stepNumber: number) {
           @update-shipping-cost="(val) => shippingCost = val"
         />
 
-        <!-- PASO 4: Auditoría de Pedido & Pasarela Flow -->
+        <!-- PASO 4: Auditoría de Pedido & Pasarela de Pagos -->
         <Step4Payment
           v-else-if="currentStep === 4"
           @prev-step="goToStep(3)"

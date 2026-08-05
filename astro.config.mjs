@@ -13,7 +13,15 @@ export default defineConfig({
   server: {
     port: 4390
   },
-  integrations: [vue()],
+  integrations: [
+    vue({
+      template: {
+        compilerOptions: {
+          hoistStatic: false
+        }
+      }
+    })
+  ],
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
@@ -22,7 +30,6 @@ export default defineConfig({
         'vue-sonner',
         '@headlessui/vue',
         'lucide-vue-next',
-        '@lucide/vue',
         'swiper',
         'swiper/vue',
         'swiper/modules'
