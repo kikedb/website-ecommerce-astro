@@ -1,20 +1,45 @@
 ---
+// src/pages/contacto.astro
 import Layout from '@/layouts/Layout.astro';
+import ContactHero from '@/components/ecommerce/ContactHero.astro';
+import ContactInfoGrid from '@/components/ecommerce/ContactInfoGrid.astro';
+import ContactForm from '@/components/ecommerce/ContactForm.vue';
+import ContactFaqAccordion from '@/components/ecommerce/ContactFaqAccordion.vue';
+import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
 ---
 
 <Layout>
-  <section class="container mx-auto px-4 py-20 text-center min-h-[60vh] flex flex-col items-center justify-center font-bilbola">
-    <span class="px-3.5 py-1.5 bg-bilbola-mint-light/50 text-bilbola-action-focus rounded-bilbola-sm text-xs font-black uppercase tracking-widest mb-4 inline-block shadow-2xs">
-      ✨ Estamos para ayudarte
-    </span>
-    <h1 class="text-4xl md:text-6xl font-black text-bilbola-text-primary mb-4 tracking-tight">
-      Contacto &amp; Atención
-    </h1>
-    <p class="text-base md:text-lg text-bilbola-text-secondary max-w-lg mx-auto leading-relaxed font-medium">
-      La sección de formulario y canales de contacto está pendiente y pronto estará disponible para responder a todas tus dudas.
-    </p>
-    <a href="/" class="mt-8 px-6 py-3 bg-bilbola-action-primary text-white font-bold rounded-bilbola-sm shadow-md hover:bg-bilbola-mint-depth transition-all text-sm">
-      Volver a Inicio
-    </a>
+  <!-- 1. Cabecera Editorial & Introducción a la Atención -->
+  <ContactHero />
+
+  <!-- 2. Sección Principal: Grid Doble con Canales y Formulario Interactivo -->
+  <section id="formulario-contacto" class="py-20 bg-bilbola-surface-page font-bilbola relative">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Canales de Información (Columna Izquierda 5 cols) -->
+        <div class="lg:col-span-5">
+          <ContactInfoGrid />
+        </div>
+
+        <!-- Formulario Interactivo de Contacto (Columna Derecha 7 cols) -->
+        <div class="lg:col-span-7">
+          <ContactForm client:load />
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- 3. Acordeón de Preguntas Frecuentes (FAQ) -->
+  <ContactFaqAccordion client:visible />
+
+  <!-- 4. Banner de Cierre (CtaBanner) -->
+  <CtaBanner
+    title="¿Anhelar es el primer paso? Descubre la magia de nuestro catálogo"
+    subtitle="Cada mueble y pieza textil ha sido imaginado para acompañar risas, lecturas nocturnas y los sueños de quienes más amas."
+    buttonText="Explorar Colección de Productos"
+    buttonUrl="/productos"
+    variant="mint"
+    iconName="shopping-bag"
+    badge="Ternura, Magia & Calidad"
+  />
 </Layout>

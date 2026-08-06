@@ -1,0 +1,117 @@
+---
+// src/components/ecommerce/ContactInfoGrid.astro
+import BaseButton from '@/components/ui/BaseButton.vue';
+import { Store, MapPin, Clock, MessageCircle, Mail, ExternalLink, HeartHandshake } from 'lucide-vue-next';
+---
+
+<div class="flex flex-col gap-8 font-bilbola">
+  
+  <!-- Tarjeta 1: Showroom Oficial -->
+  <div class="bg-gradient-to-b from-white to-bilbola-surface-neutralSoft p-8 sm:p-10 rounded-bilbola-lg border-2 border-bilbola-mint-depth/30 shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+    <div class="absolute top-0 right-0 w-36 h-36 bg-bilbola-mint-light/30 rounded-bl-[90px] pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
+    
+    <div class="flex items-start gap-5 mb-6">
+      <div class="p-4 rounded-bilbola-md bg-bilbola-surface-warmSoft text-bilbola-text-primary shadow-sm shrink-0 group-hover:scale-105 transition-transform">
+        <Store class="w-7 h-7 stroke-[2]" />
+      </div>
+      <div>
+        <span class="text-xs font-extrabold text-bilbola-action-focus uppercase tracking-widest block mb-1">Showroom Oficial</span>
+        <h3 class="text-2xl font-black text-bilbola-text-primary font-bilbola tracking-tight">
+          Pueblo del Inglés — Local 19
+        </h3>
+        <p class="text-sm text-bilbola-text-secondary font-medium">
+          Ven a conocer en persona la textura de nuestros textiles y maderas nobles.
+        </p>
+      </div>
+    </div>
+    
+    <div class="space-y-4 pt-2 border-t border-bilbola-gray-light/30 text-bilbola-text-secondary">
+      <div class="flex items-start gap-3 text-sm font-semibold leading-snug">
+        <MapPin class="w-5 h-5 text-bilbola-action-focus shrink-0 mt-0.5" />
+        <div>
+          <span class="font-bold text-bilbola-text-primary block text-xs uppercase tracking-wider">Dirección</span>
+          Avenida Vitacura 6195, Local 19, Pueblo del Inglés, Vitacura, Santiago.
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3 text-sm font-semibold leading-snug">
+        <Clock class="w-5 h-5 text-bilbola-action-focus shrink-0 mt-0.5" />
+        <div>
+          <span class="font-bold text-bilbola-text-primary block text-xs uppercase tracking-wider">Horario de Atención</span>
+          Lunes a Viernes: 10:00 a 19:00 hrs.<br/>
+          Sábado: 11:00 a 14:00 hrs.
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-4">
+      <BaseButton 
+        href="https://maps.google.com/?q=Pueblo+del+Ingles+Vitacura+Local+19" 
+        variant="outline" 
+        size="md"
+        class="w-full font-extrabold text-bilbola-text-primary border-bilbola-mint-depth/60 hover:border-bilbola-action-focus hover:bg-bilbola-mint-light/30 shadow-xs flex items-center justify-center gap-2.5 py-3"
+      >
+        <MapPin class="w-4 h-4 shrink-0 text-bilbola-action-focus" />
+        <span>Ver en Google Maps</span>
+        <ExternalLink class="w-3.5 h-3.5 shrink-0 opacity-75" />
+      </BaseButton>
+    </div>
+  </div>
+
+  <!-- Tarjeta 2: WhatsApp & Asesoría Directa -->
+  <div class="bg-white p-8 rounded-bilbola-lg border border-bilbola-gray-light/40 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group">
+    <div class="absolute top-0 left-0 w-2 h-full bg-[#FAF1BA] group-hover:w-3 transition-all"></div>
+    <div class="flex items-center gap-4 mb-4">
+      <span class="p-3 rounded-bilbola-md bg-[#FAF1BA] text-bilbola-text-primary shadow-xs">
+        <MessageCircle class="w-6 h-6 stroke-[2]" />
+      </span>
+      <div>
+        <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Atención Instantánea</h4>
+        <p class="text-xs font-bold text-bilbola-text-secondary uppercase tracking-wide">WhatsApp Oficial</p>
+      </div>
+    </div>
+    <p class="text-sm text-bilbola-text-secondary leading-relaxed mb-6">
+      ¿Necesitas una respuesta rápida sobre medidas, colores o disponibilidad de stock? Escríbenos directamente a nuestro WhatsApp para una atención personalizada.
+    </p>
+    <BaseButton 
+      href="https://wa.me/56912345678?text=%C2%A1Hola!%20Vengo%20de%20Bilbola.cl%20y%20tengo%20una%20consulta" 
+      variant="secondary" 
+      size="md"
+      class="w-full font-bold bg-[#FAF1BA] hover:bg-[#F2E59A] text-bilbola-text-primary border border-transparent shadow-sm flex items-center justify-center gap-2.5 py-3"
+    >
+      <MessageCircle class="w-4 h-4 shrink-0" />
+      <span>Abrir Chat de WhatsApp (+56 9)</span>
+    </BaseButton>
+  </div>
+
+  <!-- Tarjeta 3: Correo & Proyectos Institucionales -->
+  <div class="bg-white p-8 rounded-bilbola-lg border border-bilbola-gray-light/40 shadow-md hover:shadow-xl transition-all duration-500 relative overflow-hidden group">
+    <div class="absolute top-0 left-0 w-2 h-full bg-bilbola-mint-depth group-hover:w-3 transition-all"></div>
+    <div class="flex items-center gap-4 mb-4">
+      <span class="p-3 rounded-bilbola-md bg-bilbola-mint-light/50 text-bilbola-action-focus shadow-xs">
+        <Mail class="w-6 h-6 stroke-[2]" />
+      </span>
+      <div>
+        <h4 class="text-xl font-black text-bilbola-text-primary font-bilbola">Correo &amp; Alianzas</h4>
+        <p class="text-xs font-bold text-bilbola-text-secondary uppercase tracking-wide">Proyectos &amp; Interioristas</p>
+      </div>
+    </div>
+    <p class="text-sm text-bilbola-text-secondary leading-relaxed mb-6">
+      Para cotizaciones mayoristas, proyectos en jardines infantiles, convenios o garantías, escríbenos a nuestro correo corporativo.
+    </p>
+    <a 
+      href="mailto:contacto@bilbola.cl"
+      class="inline-flex items-center justify-center w-full gap-2.5 py-3 px-4 rounded-bilbola-sm bg-bilbola-surface-neutralSoft hover:bg-bilbola-mint-light/30 text-bilbola-text-primary font-bold text-sm border border-bilbola-gray-light/40 hover:border-bilbola-action-focus transition-all shadow-2xs"
+    >
+      <Mail class="w-4 h-4 text-bilbola-action-focus shrink-0" />
+      <span>contacto@bilbola.cl</span>
+    </a>
+  </div>
+
+  <!-- Compromiso de Respuesta Rápida -->
+  <div class="p-5 rounded-bilbola-md bg-bilbola-surface-warmSoft/60 border border-bilbola-surface-warmSoft flex items-center gap-4 text-bilbola-text-primary font-medium text-xs sm:text-sm">
+    <HeartHandshake class="w-6 h-6 text-bilbola-action-focus shrink-0" />
+    <span>Respondemos todas tus consultas en un plazo máximo de <strong>24 horas hábiles</strong>. ¡Tu tranquilidad es nuestra prioridad!</span>
+  </div>
+
+</div>
