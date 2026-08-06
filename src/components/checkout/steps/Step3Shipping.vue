@@ -2,6 +2,7 @@
 import { reactive, computed, onMounted, ref, watch } from 'vue';
 import { useCart } from '@/composables/useCart';
 import ChileShippingSelector from '@/components/ecommerce/ChileShippingSelector.vue';
+import BaseButton from '@/components/ui/BaseButton.vue';
 import { 
   Truck, 
   Store, 
@@ -415,14 +416,14 @@ function handleNext() {
         <span>Volver a Datos del Comprador (Paso 2)</span>
       </button>
 
-      <button
-        type="button"
-        class="w-full sm:w-auto px-8 py-4 bg-bilbola-action-primary text-white text-sm font-black rounded-bilbola-sm tracking-wide uppercase shadow-lg hover:bg-bilbola-action-focus hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group order-1 sm:order-2"
+      <BaseButton
+        size="lg"
+        class="w-full sm:w-auto px-8 py-4 shadow-lg group order-1 sm:order-2 tracking-wide uppercase"
         @click="handleNext"
       >
         <span>Revisar y Pagar</span>
-        <ArrowRight class="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1.5" />
-      </button>
+        <ArrowRight class="w-5 h-5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1.5" />
+      </BaseButton>
     </div>
 
   </div>

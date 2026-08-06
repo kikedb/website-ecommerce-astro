@@ -3,6 +3,7 @@ import { useCart } from '@/composables/useCart';
 import BaseDrawer from '@/components/ui/BaseDrawer.vue';
 import CartItem from '@/components/ecommerce/CartItem.vue';
 import PriceDisplay from '@/components/ecommerce/PriceDisplay.vue';
+import BaseButton from '@/components/ui/BaseButton.vue';
 import { 
   Menu, 
   ShoppingBag, 
@@ -137,13 +138,13 @@ const navLinks = [
         <p class="text-xs text-bilbola-text-secondary mt-1.5 max-w-[220px] leading-relaxed">
           Descubre nuestra colección de camas y decoración para llenar este espacio de magia.
         </p>
-        <a
+        <BaseButton
           href="/productos"
-          class="mt-6 inline-flex items-center justify-center px-6 py-3 rounded-bilbola-sm bg-bilbola-action-primary text-white font-bold text-xs tracking-wide shadow-md hover:opacity-95 transition-opacity"
+          class="mt-6 shadow-md transition-opacity"
           @click="isCartOpen = false"
         >
           Explorar Productos
-        </a>
+        </BaseButton>
       </div>
 
       <!-- Lista de Ítems -->
@@ -190,14 +191,15 @@ const navLinks = [
           </p>
 
           <!-- Botón CTA Checkout -->
-          <a
+          <BaseButton
             href="/checkout"
-            class="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-bilbola-sm bg-bilbola-action-primary text-white font-black text-sm tracking-wide shadow-lg hover:bg-bilbola-mint-depth transition-all duration-200 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bilbola-action-focus focus:ring-offset-2 group"
+            size="lg"
+            class="w-full shadow-lg group"
             @click="isCartOpen = false"
           >
             <span>Proceder con el Pago</span>
-            <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1.5 duration-200" />
-          </a>
+            <ArrowRight class="h-4 w-4 ml-1.5 transition-transform group-hover:translate-x-1.5 duration-200" />
+          </BaseButton>
           
           <div class="text-center pt-0.5">
             <button

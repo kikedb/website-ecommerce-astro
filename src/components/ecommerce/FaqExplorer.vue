@@ -6,6 +6,7 @@ import {
   MessageCircle, Mail, ChevronDown, CheckCircle2, AlertCircle, Smile,
   Droplets, MapPin, Lock, CreditCard, Box, Hammer
 } from 'lucide-vue-next';
+import BaseButton from '@/components/ui/BaseButton.vue';
 
 interface FaqItem {
   id: string;
@@ -190,13 +191,13 @@ const filteredFaqs = computed(() => {
         <p class="text-sm text-bilbola-text-secondary max-w-md mx-auto font-medium">
           Pero nuestro equipo de interioristas y especialistas en mobiliario infantil está conectado al otro lado de la pantalla para asesorarte en directo.
         </p>
-        <button 
+        <BaseButton 
+          variant="secondary"
           @click="searchQuery = ''; selectedCategory = 'all'" 
-          type="button" 
-          class="inline-block px-5 py-2.5 bg-bilbola-surface-neutral hover:bg-bilbola-action-primary hover:text-white text-bilbola-text-primary text-xs font-black rounded-sm transition-all shadow-2xs"
+          class="shadow-2xs"
         >
           Ver Todas las Preguntas Frecuentes
-        </button>
+        </BaseButton>
       </div>
 
       <Disclosure

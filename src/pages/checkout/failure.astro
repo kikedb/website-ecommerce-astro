@@ -1,5 +1,6 @@
 ---
 import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
+import BaseButton from '@/components/ui/BaseButton.vue';
 ---
 
 <CheckoutLayout title="Transacción No Completada | Bílbola Deco Kids">
@@ -42,15 +43,13 @@ import CheckoutLayout from '@/layouts/CheckoutLayout.astro';
 
         <!-- ACCIONES RÁPIDAS DE CONTINUIDAD -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <a
+            <BaseButton
               href="/checkout"
-              class="w-full sm:w-auto px-8 py-4 bg-bilbola-action-primary hover:bg-bilbola-action-focus text-white text-xs sm:text-sm font-black rounded-bilbola-sm tracking-wide uppercase shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 group"
+              variant="primary"
+              class="w-full sm:w-auto"
             >
-              <svg class="w-4 h-4 group-hover:-rotate-45 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-              </svg>
-              <span>Reintentar el Pago Ahora</span>
-            </a>
+              Reintentar el Pago Ahora
+            </BaseButton>
 
             <a
               href="/contacto"

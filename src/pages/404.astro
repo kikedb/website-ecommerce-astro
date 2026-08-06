@@ -1,5 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { Home, Search, Compass, ArrowRight, LifeBuoy } from 'lucide-vue-next';
+import BaseButton from '@/components/ui/BaseButton.vue';
 ---
 
 <Layout title="Página No Encontrada (404) | Bílbola Deco Kids" description="El rincón o mueble que buscas parece haber cambiado de lugar en la habitación de juegos. Regresa tranquilio al inicio del catálogo Bílbola.">
@@ -37,19 +39,13 @@ import Layout from '@/layouts/Layout.astro';
       <!-- BOTONES DE RESCATE EMPÁTICO (WCAG AA & MOBILE-FIRST 44x44px min) -->
       <div class="relative z-10 pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 border-t border-bilbola-gray-light/30">
         
-        <a 
-          href="/" 
-          class="w-full sm:w-auto px-8 py-4 bg-bilbola-action-primary hover:bg-bilbola-action-focus text-white font-black text-sm rounded-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg min-h-[48px]"
-        >
+        <BaseButton href="/" variant="primary">
           <span>🏠 Regresar al Inicio</span>
-        </a>
+        </BaseButton>
 
-        <a 
-          href="/productos" 
-          class="w-full sm:w-auto px-8 py-4 bg-bilbola-surface-neutral hover:bg-bilbola-surface-warm text-bilbola-text-primary hover:text-bilbola-action-focus font-black text-sm rounded-sm transition-all duration-200 border border-bilbola-gray-light/60 flex items-center justify-center gap-2 shadow-2xs min-h-[48px]"
-        >
+        <BaseButton href="/productos" variant="secondary">
           <span>✨ Explorar Catálogo Deco Kids</span>
-        </a>
+        </BaseButton>
 
       </div>
 

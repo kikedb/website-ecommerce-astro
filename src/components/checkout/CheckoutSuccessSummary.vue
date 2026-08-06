@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useCart } from '@/composables/useCart';
+import BaseButton from '@/components/ui/BaseButton.vue';
 import { 
   CheckCircle2, 
   Copy, 
@@ -199,13 +200,14 @@ function copyOrderId() {
 
     <!-- BOTONES DE ACCIONES POSTERIORES -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-      <a
+      <BaseButton
         href="/productos"
-        class="w-full sm:w-auto px-8 py-4 bg-bilbola-action-primary hover:bg-bilbola-action-focus text-white text-xs sm:text-sm font-black rounded-bilbola-sm tracking-wide uppercase shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2.5 group"
+        size="lg"
+        class="w-full sm:w-auto px-8 py-4 tracking-wide uppercase shadow-md group"
       >
-        <ShoppingBag class="w-4 h-4 stroke-[2.2] group-hover:scale-110 transition-transform" />
+        <ShoppingBag class="w-4 h-4 mr-2 stroke-[2.2] group-hover:scale-110 transition-transform" />
         <span>Volver al Catálogo de Productos</span>
-      </a>
+      </BaseButton>
 
       <a
         href="/contacto"

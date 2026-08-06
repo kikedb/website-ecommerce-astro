@@ -185,16 +185,16 @@ function resetForm() {
 
         <!-- Botón de Enviar (WCAG AA Altura mínima y Contraste) -->
         <div class="pt-2">
-          <button
+          <BaseButton
             type="submit"
-            :disabled="isSubmitting"
-            class="w-full min-h-[50px] py-4 px-8 rounded-bilbola-sm bg-bilbola-action-primary hover:bg-bilbola-action-focus disabled:opacity-60 text-white font-black text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 flex items-center justify-center gap-3 cursor-pointer disabled:cursor-not-allowed group"
+            size="lg"
+            :loading="isSubmitting"
+            class="w-full min-h-[50px] shadow-lg group"
             aria-live="polite"
           >
-            <Loader2 v-if="isSubmitting" class="w-5 h-5 animate-spin shrink-0" />
-            <Send v-else class="w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1" />
+            <Send v-if="!isSubmitting" class="w-5 h-5 shrink-0 mr-2 transition-transform group-hover:translate-x-1" />
             <span>{{ isSubmitting ? 'Enviando Mensaje...' : 'Enviar Mi Consulta' }}</span>
-          </button>
+          </BaseButton>
         </div>
 
       </form>

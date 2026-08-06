@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { Lock, Sparkles, Loader2 } from 'lucide-vue-next';
 import { useCart } from '@/composables/useCart';
+import BaseButton from '@/components/ui/BaseButton.vue';
 
 export interface Props {
   amount: number;
@@ -58,24 +59,24 @@ function startFlowPayment() {
   <div class="w-full font-bilbola">
     
     <!-- BOTÓN PRINCIPAL DE PAGO FLOW -->
-    <button
-      type="button"
-      :disabled="disabled || isConnecting"
-      class="w-full py-5 px-6 rounded-bilbola-md bg-bilbola-action-primary text-white font-black text-base sm:text-lg tracking-wide uppercase shadow-xl hover:bg-bilbola-mint-depth hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-4 focus:ring-bilbola-mint-light/80 flex items-center justify-center gap-3 group relative overflow-hidden"
+    <BaseButton
+      size="lg"
+      :disabled="disabled"
+      :loading="isConnecting"
+      class="w-full py-5 px-6 font-black text-base sm:text-lg tracking-wide uppercase shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 group relative overflow-hidden"
       @click="startFlowPayment"
     >
       <!-- Efecto de brillo -->
       <div class="absolute inset-0 w-1/2 h-full bg-white/20 -skew-x-12 -translate-x-full group-hover:translate-x-300 transition-transform duration-1000 pointer-events-none" />
 
       <Lock v-if="!isConnecting" class="w-6 h-6 stroke-[2.2] shrink-0 text-bilbola-mint-light group-hover:scale-110 transition-transform duration-200" />
-      <Loader2 v-else class="w-6 h-6 animate-spin shrink-0 text-white" />
 
       <span v-if="!isConnecting" class="flex items-center gap-2">
         <span>Confirmar y Pagar ${{ amount.toLocaleString('es-CL') }} en Flow</span>
         <span class="text-xs px-2 py-0.5 rounded-sm bg-black/20 font-bold lowercase">ssl 256-bit</span>
       </span>
-      <span v-else class="animate-pulse">Conectando con servidores bancarios encriptados...</span>
-    </button>
+      <span v-else class="animate-pulse ml-2">Conectando con servidores bancarios encriptados...</span>
+    </BaseButton>
 
     <!-- OVERLAY MÁGICO DE CONEXIÓN BANCARIA (Se muestra mientras redirige) -->
     <Teleport to="body">
