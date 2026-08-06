@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
+import * as PoliticasDoc from '@/content/politicas/envios-y-garantias.md';
+import { Truck, ShieldCheck } from 'lucide-vue-next';
+
+const Content = PoliticasDoc.Content;
+---
+
+<Layout title="Políticas de Envíos, Retiro y Garantías | Bílbola Deco Kids" description="Información detallada sobre nuestros despachos a todo Chile (¡Envío gratis sobre $40.000!), retiro gratuito en el Showroom de Vitacura y garantía legal de 6 meses.">
+  <main class="min-h-screen bg-gradient-to-b from-white via-bilbola-surface-neutral/30 to-bilbola-surface-neutral/60 py-12 sm:py-20 font-bilbola">
+    
+    <!-- HEADER NARRATIVO Y MIGAS DE PAN (BREADCRUMBS) -->
+    <header class="max-w-4xl mx-auto px-4 sm:px-6 mb-12 text-center space-y-4">
+      <nav aria-label="Breadcrumb" class="flex items-center justify-center gap-2 text-xs font-bold text-bilbola-text-secondary uppercase tracking-widest">
+        <a href="/" class="hover:text-bilbola-action-focus transition-colors">Inicio</a>
+        <span>/</span>
+        <span class="text-bilbola-text-primary">Políticas Institucionales</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-bilbola-mint-light/60 border border-bilbola-action-focus text-bilbola-action-focus font-black text-xs uppercase tracking-wider shadow-2xs">
+        <Truck class="w-4 h-4 text-bilbola-action-focus shrink-0" />
+        <span>Envío Gratis sobre $40.000 &amp; Respaldo Total</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-black text-bilbola-text-primary tracking-tight leading-none font-bilbola-serif">
+        Políticas de Envíos &amp; Garantías
+      </h1>
+      
+      <p class="text-sm sm:text-base text-bilbola-text-secondary max-w-xl mx-auto font-medium leading-relaxed">
+        Transparencia en cada despacho nacional, flexibilidad de retiro en showroom y el compromiso de calidad para resguardar el libre movimiento de tus infancias.
+      </p>
+    </header>
+
+    <!-- CONTENEDOR MARKDOWN INSTITUCIONAL (ESTILO DE MARCA BÍLBOLA) -->
+    <article class="max-w-4xl mx-auto px-6 sm:px-12 py-10 sm:py-14 bg-white rounded-bilbola-lg border border-bilbola-gray-light/50 shadow-md">
+      <div class="prose prose-bilbola max-w-none text-bilbola-text-primary font-medium space-y-6 
+                  prose-headings:font-bold prose-headings:text-bilbola-text-primary prose-headings:tracking-tight 
+                  prose-h1:text-2xl sm:prose-h1:text-3xl prose-h1:border-b prose-h1:border-bilbola-gray-light/30 prose-h1:pb-4
+                  prose-h2:text-lg sm:prose-h2:text-xl prose-h2:text-bilbola-action-focus prose-h2:mt-8
+                  prose-p:text-sm sm:prose-p:text-base prose-p:leading-relaxed prose-p:text-bilbola-text-secondary
+                  prose-li:text-sm sm:prose-li:text-base prose-li:text-bilbola-text-secondary prose-li:my-1
+                  prose-ul:list-disc prose-ul:pl-6 prose-ol:list-decimal prose-ol:pl-6
+                  prose-strong:font-extrabold prose-strong:text-bilbola-text-primary
+                  prose-a:text-bilbola-action-focus prose-a:font-extrabold prose-a:underline hover:prose-a:text-bilbola-text-primary
+                  prose-blockquote:border-l-4 prose-blockquote:border-bilbola-action-focus prose-blockquote:bg-bilbola-surface-neutral/60 prose-blockquote:p-4 prose-blockquote:rounded-r-sm prose-blockquote:not-italic prose-blockquote:text-xs sm:prose-blockquote:text-sm">
+        <Content />
+      </div>
+    </article>
+
+    <!-- BANNER FINAL DE CONFIANZA Y CATÁLOGO -->
+    <section class="mt-20 max-w-5xl mx-auto px-4 sm:px-6">
+      <CtaBanner 
+        title="¿Todo listo para proyectar el dormitorio soñado?"
+        subtitle="Disfruta de envío gratuito a todo Chile en compras sobre $40.000 con la tranquilidad del respaldo oficial Bílbola."
+        buttonText="Ir de Compras al Catálogo"
+        buttonUrl="/productos"
+        variant="mint"
+        iconName="truck"
+        badge="Logística Seguro &amp; Rápida"
+      />
+    </section>
+
+  </main>
+</Layout>

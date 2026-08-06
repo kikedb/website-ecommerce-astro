@@ -1,0 +1,52 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FaqExplorer from '@/components/ecommerce/FaqExplorer.vue';
+import CtaBanner from '@/components/ecommerce/CtaBanner.astro';
+import { Sparkles } from 'lucide-vue-next';
+---
+
+<Layout title="Preguntas Frecuentes & Guía de Cuidados | Bílbola Deco Kids" description="Resolvemos todas tus dudas sobre el cuidado de muebles de madera, fundas lavables, despachos nacionales y filosofía de seguridad Montessori para dormitorios infantiles.">
+  <main class="min-h-screen bg-gradient-to-b from-white via-bilbola-surface-neutral/40 to-bilbola-surface-neutral/60 py-12 sm:py-20 font-bilbola">
+    
+    <!-- HEADER NARRATIVO Y MIGAS DE PAN (BREADCRUMBS) -->
+    <header class="max-w-5xl mx-auto px-4 sm:px-6 mb-12 text-center space-y-4">
+      <nav aria-label="Breadcrumb" class="flex items-center justify-center gap-2 text-xs font-bold text-bilbola-text-secondary uppercase tracking-widest">
+        <a href="/" class="hover:text-bilbola-action-focus transition-colors">Inicio</a>
+        <span>/</span>
+        <span class="text-bilbola-text-primary">Centro de Asistencia &amp; Cuidados</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-bilbola-mint-light/60 border border-bilbola-action-focus text-bilbola-action-focus font-black text-xs uppercase tracking-wider shadow-2xs">
+        <Sparkles class="w-4 h-4 text-bilbola-action-focus" />
+        <span>Tranquilidad Familiar &amp; Maderas Nobles</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-bilbola-text-primary tracking-tight leading-none font-bilbola-serif">
+        Preguntas Frecuentes &amp; Cuidados Deco
+      </h1>
+      
+      <p class="text-base sm:text-lg text-bilbola-text-secondary max-w-2xl mx-auto font-medium leading-relaxed">
+        Todo lo que necesitas saber sobre nuestra manufactura artesanal, limpieza de textiles hipoalergénicos, seguridad Montessori y envíos a todo Chile.
+      </p>
+    </header>
+
+    <!-- ISLA REACTIVA VUE 3 CON BUSCADOR Y TABS CATEGORIZADAS -->
+    <section aria-label="Explorador de Preguntas Frecuentes">
+      <FaqExplorer client:load />
+    </section>
+
+    <!-- BANNER FINAL DEL ECOSISTEMA DECO KIDS -->
+    <section class="mt-24 max-w-6xl mx-auto px-4 sm:px-6">
+      <CtaBanner 
+        title="¿Buscando transformar el dormitorio de tus pequeños?"
+        subtitle="Explora nuestra colección de mobiliario Montessori con bordes redondeados y pinturas ecocertificadas al agua libres de tóxicos."
+        buttonText="Descubrir Catálogo Bílbola"
+        buttonUrl="/productos"
+        variant="mint"
+        iconName="sparkles"
+        badge="Catálogo 100% Seguro"
+      />
+    </section>
+
+  </main>
+</Layout>

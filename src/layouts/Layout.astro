@@ -4,6 +4,18 @@ import '@fontsource-variable/source-serif-4/wght-italic.css';
 import '@/styles/global.css';
 import Navbar from '@/components/ecommerce/Navbar.vue';
 import { ClientRouter } from 'astro:transitions';
+
+export interface Props {
+    title?: string;
+    description?: string;
+    image?: string;
+}
+
+const { 
+    title = "Bílbola | Un mundo de sueños", 
+    description = "Bílbola - Decoración y mobiliario infantil con diseño artesanal y sustentable para dormitorios llenos de magia.",
+    image
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -12,8 +24,9 @@ import { ClientRouter } from 'astro:transitions';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="description" content="Bílbola - Decoración y mobiliario infantil con diseño artesanal y sustentable para dormitorios llenos de magia." />
-    <title>Bílbola | Un mundo de sueños</title>
+    <meta name="description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+    <title>{title}</title>
     <ClientRouter />
 </head>
 <body class="bg-bilbola-surface-page text-bilbola-text-primary min-h-screen flex flex-col font-bilbola">
@@ -22,10 +35,63 @@ import { ClientRouter } from 'astro:transitions';
     <main class="flex-grow">
         <slot />
     </main>
-    <footer class="bg-bilbola-action-primary text-bilbola-mint-light py-12 mt-12">
-        <div class="container mx-auto text-center px-4">
-            <p class="text-lg font-bilbola font-bold">Un mundo de sueños</p>
-            <p class="text-sm mt-4 text-bilbola-mint-light/80">Bílbola Deco Kids &copy; {new Date().getFullYear()}</p>
+    <footer class="bg-bilbola-mint-light text-bilbola-text-primary py-16 mt-12 border-t border-bilbola-mint-depth/40 font-bilbola">
+        <div class="container mx-auto px-6 lg:px-8 max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+                <!-- Columna 1: Logo y Filosofía -->
+                <div class="space-y-6 col-span-1 md:col-span-1">
+                    <a href="/" class="inline-block transition-transform hover:scale-102">
+                        <img src="/logo-bilbola.png" alt="Logo Bílbola" class="h-16 w-auto object-contain" />
+                    </a>
+                    <p class="text-sm text-bilbola-text-primary/80 font-medium leading-relaxed max-w-xs">
+                        Decoración y mobiliario infantil con diseño artesanal, fabricado en Chile. Pensado en el libre movimiento y el respeto por las infancias.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Mapa del Sitio (Tienda y Marca) -->
+                <div class="space-y-4">
+                    <h4 class="font-black text-lg text-bilbola-action-focus">Descubre</h4>
+                    <ul class="space-y-3 text-sm font-semibold">
+                        <li><a href="/productos" class="hover:text-bilbola-action-focus transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bilbola-action-focus/40"></span> Todos los Productos</a></li>
+                        <li><a href="/quienes-somos" class="hover:text-bilbola-action-focus transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bilbola-action-focus/40"></span> Quiénes Somos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Asistencia y Soporte -->
+                <div class="space-y-4">
+                    <h4 class="font-black text-lg text-bilbola-action-focus">Asistencia</h4>
+                    <ul class="space-y-3 text-sm font-semibold">
+                        <li><a href="/preguntas-frecuentes" class="hover:text-bilbola-action-focus transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bilbola-action-focus/40"></span> FAQ &amp; Cuidados</a></li>
+                        <li><a href="/contacto" class="hover:text-bilbola-action-focus transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bilbola-action-focus/40"></span> Mesa de Ayuda</a></li>
+                        <li><a href="/politicas-y-envios" class="hover:text-bilbola-action-focus transition-colors flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bilbola-action-focus/40"></span> Políticas de Envíos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto / Redes -->
+                <div class="space-y-4">
+                    <h4 class="font-black text-lg text-bilbola-action-focus">Encuéntranos</h4>
+                    <address class="not-italic space-y-3 text-sm font-semibold text-bilbola-text-primary/80">
+                        <p class="flex items-start gap-2">
+                            <span>📍</span>
+                            <span>Local 19, Pueblo del Inglés<br />Vitacura, Santiago</span>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <span>✉️</span>
+                            <a href="mailto:hola@bilbola.cl" class="hover:text-bilbola-action-focus transition-colors">hola@bilbola.cl</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+
+            <!-- Divisor y Copyright -->
+            <div class="mt-16 pt-8 border-t border-bilbola-action-primary/10 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-xs font-bold text-bilbola-text-primary/60">
+                    &copy; {new Date().getFullYear()} Bílbola Deco Kids. Todos los derechos reservados.
+                </p>
+                <div class="flex items-center gap-4 text-xs font-bold text-bilbola-text-primary/60">
+                    <a href="/vistas" class="hover:text-bilbola-action-focus transition-colors">Directorio de Vistas QA</a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
